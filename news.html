@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Новини та оновлення Ferrari Track Experience &amp; Telemetry Lab: події, траси й телеметрія.">
+  <meta name="theme-color" content="#0B0F17">
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <title>Новини та оновлення — Ferrari Track Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    :root {
+      --color-brand: #D40000;
+      --color-brand-hover: #FF1E1E;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: "var(--color-brand)"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="js/theme-toggle.js" defer></script>
+</head>
+<body class="overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Головна навігація">
+      <a class="flex min-h-11 shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+        <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+      </a>
+      <ul class="hidden items-center gap-5 xl:flex">
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="tracks.html">Траси та Програми</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Телеметрія</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="news.html" aria-current="page">Новини</a></li>
+      </ul>
+      <button id="theme-toggle" type="button" aria-label="Змінити тему" class="p-2 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-800/20 dark:hover:bg-slate-800 transition-colors">
+        <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+        <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
+      </button>
+      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="index.html#booking">Start Free Trial</a>
+      <details class="group relative xl:hidden">
+        <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації">
+          <i class="fa-solid fa-bars group-open:hidden" aria-hidden="true"></i><i class="fa-solid fa-xmark hidden group-open:inline" aria-hidden="true"></i>
+        </summary>
+        <ul class="absolute right-0 top-full z-50 mt-3 flex w-[min(20rem,calc(100vw-2rem))] flex-col gap-1 rounded-xl border border-white/10 bg-slate-900 p-3 shadow-2xl">
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="index.html">Головна</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="tracks.html">Траси та Програми</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="telemetry.html">Телеметрія</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="instructors.html">Інструктори</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg bg-white/5 px-3 text-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="news.html" aria-current="page">Новини</a></li>
+          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="index.html#booking">Start Free Trial</a></li>
+        </ul>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="news-title">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber-500">З нашого паддоку</p>
+      <div class="mt-3 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h1 id="news-title" class="font-[Space_Grotesk] text-4xl font-bold text-white sm:text-5xl">Новини та оновлення</h1>
+          <p class="mt-4 max-w-2xl leading-7 text-slate-400">Анонси подій, оновлення програм і найцікавіше зі світу трекового досвіду.</p>
+        </div>
+        <nav class="flex flex-wrap gap-2" aria-label="Фільтри новин">
+          <a class="inline-flex min-h-10 items-center rounded-full bg-red-600 px-4 text-sm font-semibold text-white transition-all hover:bg-red-700" href="#news-list" aria-current="page">Усі новини</a>
+          <a class="inline-flex min-h-10 items-center rounded-full border border-white/15 px-4 text-sm text-slate-300 transition-all hover:border-amber-500 hover:text-white" href="#news-list">Події</a>
+          <a class="inline-flex min-h-10 items-center rounded-full border border-white/15 px-4 text-sm text-slate-300 transition-all hover:border-amber-500 hover:text-white" href="#news-list">Телеметрія</a>
+          <a class="inline-flex min-h-10 items-center rounded-full border border-white/15 px-4 text-sm text-slate-300 transition-all hover:border-amber-500 hover:text-white" href="#news-list">Оновлення</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8" aria-labelledby="featured-news-title">
+      <article class="overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-md">
+        <div class="grid lg:grid-cols-2">
+          <div class="aspect-video overflow-hidden lg:aspect-auto">
+            <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Спортивний автомобіль перед виїздом на гоночну трасу" loading="lazy">
+          </div>
+          <div class="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
+            <p class="inline-flex w-fit items-center gap-2 rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-500"><i class="fa-solid fa-star" aria-hidden="true"></i> Головна новина</p>
+            <time class="mt-5 text-sm text-slate-400" datetime="2026-10-28">28 жовтня 2026</time>
+            <h2 id="featured-news-title" class="mt-3 font-[Space_Grotesk] text-3xl font-bold text-white sm:text-4xl">Новий сезон Ferrari Track Experience: бронювання відкрито</h2>
+            <p class="mt-4 leading-7 text-slate-300">Плануйте свій наступний трек-день: у новому сезоні на вас чекають легендарні європейські автодроми, оновлені програми та персональний аналіз телеметрії після заїзду.</p>
+            <a class="mt-6 inline-flex min-h-11 w-fit items-center gap-2 font-semibold text-amber-500 transition-colors hover:text-amber-400" href="index.html#booking">Забронювати заїзд <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="news-list" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8" aria-labelledby="news-list-title">
+      <div class="mb-7 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber-500">Останні публікації</p>
+          <h2 id="news-list-title" class="mt-2 font-[Space_Grotesk] text-3xl font-bold text-white">Стрічка новин</h2>
+        </div>
+        <p class="text-sm text-slate-400">6 публікацій</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-slate-800 rounded-xl overflow-hidden flex flex-col h-full shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="aspect-video overflow-hidden relative">
+            <img class="h-full w-full object-cover" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/dppi_00126022_2718.jpg?itok=ejOuMVY5" alt="Кімі Антонеллі святкує титул чемпіона Формули-1 на Гран-прі Мехіко" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">Формула-1</span>
+          </div>
+          <div class="p-5 flex flex-1 flex-col">
+            <p class="text-xs text-slate-400 my-2"><time datetime="2026-11-02">02 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">Кімі Антонеллі став наймолодшим чемпіоном Формули-1</h3>
+            <p class="text-slate-300 text-sm mb-4 line-clamp-3">Пілот Mercedes фінішував третім у Гран-прі Мехіко й достроково здобув свій перший титул чемпіона світу у віці 20 років.</p>
+            <p class="mb-3 text-xs text-slate-400">Джерело: <a class="text-amber-400 hover:underline" href="https://www.fia.com/news/f1-antonelli-crowned-f1s-youngest-world-champion-verstappen-wins-mexico-city" target="_blank" rel="noopener noreferrer">FIA</a></p>
+            <a href="news-single.html" class="mt-auto inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium text-sm">Читати повністю →</a>
+          </div>
+        </article>
+        <article class="bg-slate-800 rounded-xl overflow-hidden flex flex-col h-full shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="aspect-video overflow-hidden relative">
+            <img class="h-full w-full object-cover" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/dppi_00126022_1681.jpg?itok=BN5--7xy" alt="Льюїс Гамільтон на Ferrari після здобуття поул-позиції в Мехіко" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">Формула-1</span>
+          </div>
+          <div class="p-5 flex flex-1 flex-col">
+            <p class="text-xs text-slate-400 my-2"><time datetime="2026-11-01">01 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">Гамільтон здобув перший поул за Ferrari</h3>
+            <p class="text-slate-300 text-sm mb-4 line-clamp-3">На кваліфікації Гран-прі Мехіко Гамільтон випередив Джорджа Расселла лише на 0,009 секунди, встановивши найкращий час — 1:16.514.</p>
+            <p class="mb-3 text-xs text-slate-400">Джерело: <a class="text-amber-400 hover:underline" href="https://www.fia.com/news/f1-hamilton-claims-first-ferrari-pole-position-thrilling-mexico-city-qualifying" target="_blank" rel="noopener noreferrer">FIA</a></p>
+            <a href="news-single.html" class="mt-auto inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium text-sm">Читати повністю →</a>
+          </div>
+        </article>
+        <article class="bg-slate-800 rounded-xl overflow-hidden flex flex-col h-full shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="aspect-video overflow-hidden relative">
+            <img class="h-full w-full object-cover" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/dppi_02223011_1291.jpg?itok=H3YxdEJA" alt="Автомобілі чемпіонату світу з перегонів на витривалість перед фіналом у Монці" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">WEC</span>
+          </div>
+          <div class="p-5 flex flex-1 flex-col">
+            <p class="text-xs text-slate-400 my-2"><time datetime="2026-11-03">03 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">Титули WEC вирішаться у фіналі сезону в Монці</h3>
+            <p class="text-slate-300 text-sm mb-4 line-clamp-3">У фіналі на Autodromo Nazionale Monza визначаться володарі кількох титулів. У класі Hypercar екіпаж №8 Toyota має перевагу у 17 очок над напарниками.</p>
+            <p class="mb-3 text-xs text-slate-400">Джерело: <a class="text-amber-400 hover:underline" href="https://www.fia.com/news/wec-high-speeds-and-high-stakes-monza-season-finale" target="_blank" rel="noopener noreferrer">FIA</a></p>
+            <a href="news-single.html" class="mt-auto inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium text-sm">Читати повністю →</a>
+          </div>
+        </article>
+        <article class="bg-slate-800 rounded-xl overflow-hidden flex flex-col h-full shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="aspect-video overflow-hidden relative">
+            <img class="h-full w-full object-cover" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/junior_wrc_calendar_if.jpg?itok=jHZEfv-O" alt="Оголошення календаря чемпіонату світу з ралі серед юніорів на 2027 рік" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">Ралі</span>
+          </div>
+          <div class="p-5 flex flex-1 flex-col">
+            <p class="text-xs text-slate-400 my-2"><time datetime="2026-11-02">02 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">Junior WRC оголосив календар і розширену нагороду на 2027 рік</h3>
+            <p class="text-slate-300 text-sm mb-4 line-clamp-3">Сезон складатиметься з п’яти європейських етапів, а чемпіон отримає програму з семи раундів WRC2 у сезоні 2028 року.</p>
+            <p class="mb-3 text-xs text-slate-400">Джерело: <a class="text-amber-400 hover:underline" href="https://www.fia.com/news/junior-wrc-set-major-boost-2027-expanded-prize-drive-and-revised-calendar" target="_blank" rel="noopener noreferrer">FIA</a></p>
+            <a href="news-single.html" class="mt-auto inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium text-sm">Читати повністю →</a>
+          </div>
+        </article>
+        <article class="bg-slate-800 rounded-xl overflow-hidden flex flex-col h-full shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="aspect-video overflow-hidden relative">
+            <img class="h-full w-full object-cover" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/ksp_000_0003_4_0.jpeg?itok=6KocBqjp" alt="Юні картингісти змагаються за титули чемпіонату світу FIA" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">Картинг</span>
+          </div>
+          <div class="p-5 flex flex-1 flex-col">
+            <p class="text-xs text-slate-400 my-2"><time datetime="2026-11-03">03 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">La Conca приймає чемпіонат світу FIA з картингу</h3>
+            <p class="text-slate-300 text-sm mb-4 line-clamp-3">194 пілоти змагатимуться за титули в категоріях OK і Junior на трасі La Conca; подія також відзначає 70-річчя картингу.</p>
+            <p class="mb-3 text-xs text-slate-400">Джерело: <a class="text-amber-400 hover:underline" href="https://www.fia.com/news/history-be-written-2026-fia-karting-world-championships-decided-italy" target="_blank" rel="noopener noreferrer">FIA</a></p>
+            <a href="news-single.html" class="mt-auto inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium text-sm">Читати повністю →</a>
+          </div>
+        </article>
+        <article class="bg-slate-800 rounded-xl overflow-hidden flex flex-col h-full shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="aspect-video overflow-hidden relative">
+            <img class="h-full w-full object-cover" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/francisco_barreto_.jpg?itok=cAn9LM-W" alt="Позашляховий гоночний автомобіль на етапі Кубка світу FIA Baja" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">Ралі-рейд</span>
+          </div>
+          <div class="p-5 flex flex-1 flex-col">
+            <p class="text-xs text-slate-400 my-2"><time datetime="2026-11-01">01 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">Dubai International Baja завершить сезон Кубків FIA</h3>
+            <p class="text-slate-300 text-sm mb-4 line-clamp-3">На ювілейному, десятому ралі-рейді в Дубаї визначать чемпіонів Кубка світу та Кубка Близького Сходу FIA Baja.</p>
+            <p class="mb-3 text-xs text-slate-400">Джерело: <a class="text-amber-400 hover:underline" href="https://www.fia.com/news/fia-world-and-middle-east-baja-cups-set-thrilling-conclusion-weekends-dubai-international-baja" target="_blank" rel="noopener noreferrer">FIA</a></p>
+            <a href="news-single.html" class="mt-auto inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium text-sm">Читати повністю →</a>
+          </div>
+        </article>
+      </div>
+
+      <nav class="mt-10 flex items-center justify-center gap-2" aria-label="Пагінація новин">
+        <span class="inline-flex h-11 min-w-11 items-center justify-center rounded-lg border border-white/10 px-3 text-sm text-slate-500" aria-disabled="true">Назад</span>
+        <a class="inline-flex h-11 min-w-11 items-center justify-center rounded-lg bg-red-600 px-3 text-sm font-semibold text-white" href="news.html" aria-current="page">1</a>
+        <a class="inline-flex h-11 min-w-11 items-center justify-center rounded-lg border border-white/10 px-3 text-sm text-slate-300 transition-all hover:border-amber-500 hover:text-white" href="news.html?page=2">2</a>
+        <a class="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-white/10 px-4 text-sm text-slate-300 transition-all hover:border-amber-500 hover:text-white" href="news.html?page=2">Далі <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-white px-4 py-10 dark:bg-slate-950 sm:px-6 lg:px-8">
+    <section class="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4" aria-label="Інформація про компанію">
+      <article>
+        <a class="inline-flex min-h-11 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+          <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+        </a>
+        <p class="mt-3 max-w-xs text-sm leading-6 text-slate-400">Трековий досвід і точна телеметрія для пілотів, які прагнуть більшого.</p>
+      </article>
+      <nav aria-label="Розділи сайту">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Розділи</h2>
+        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="tracks.html">Траси та Програми</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Телеметрія</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="news.html" aria-current="page">Новини</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Соціальні мережі">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Соціальні мережі</h2>
+        <ul class="mt-3 flex gap-3">
+          <li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="https://www.instagram.com/" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="https://www.youtube.com/" aria-label="YouTube" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+        </ul>
+      </nav>
+      <address class="text-sm not-italic text-slate-400">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Контакти</h2>
+        <a class="mt-3 inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="mailto:info@example.com">info@example.com</a>
+      </address>
+    </section>
+    <section class="mx-auto mt-8 max-w-7xl border-t border-white/10 pt-5" aria-label="Правова інформація та стан систем">
+      <p class="text-xs leading-5 text-slate-500">© 2026 Ferrari Track Experience &amp; Telemetry Lab. Незалежна демонстраційна концепція, не пов’язана з Ferrari S.p.A.</p>
+      <p class="mt-4 inline-flex items-center gap-2 text-xs font-medium text-slate-300"><span class="relative flex h-2.5 w-2.5" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span></span>System Status: Operational</p>
+    </section>
+  </footer>
+</body>
+</html>

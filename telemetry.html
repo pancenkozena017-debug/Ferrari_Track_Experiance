@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Лабораторія телеметрії Ferrari Track Experience: відеоаналіз 100 Гц та візуальний розбір еталонного кола в Монако.">
+  <meta name="theme-color" content="#0B0F17">
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <title>Лабораторія телеметрії | Ferrari Track Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: "class" };</script>
+  <script src="js/theme-toggle.js" defer></script>
+</head>
+<body class="overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Головна навігація">
+      <a class="flex min-h-11 shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+        <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+      </a>
+      <ul class="hidden items-center gap-5 xl:flex">
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="tracks.html">Траси та Програми</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="telemetry.html" aria-current="page">Телеметрія</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li>
+      </ul>
+      <button id="theme-toggle" type="button" aria-label="Змінити тему" class="p-2 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-800/20 dark:hover:bg-slate-800 transition-colors">
+        <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+        <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
+      </button>
+      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="index.html#booking">Start Free Trial</a>
+      <details class="group relative xl:hidden">
+        <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації"><i class="fa-solid fa-bars group-open:hidden" aria-hidden="true"></i><i class="fa-solid fa-xmark hidden group-open:inline" aria-hidden="true"></i></summary>
+        <ul class="absolute right-0 top-full z-50 mt-3 flex w-[min(20rem,calc(100vw-2rem))] flex-col gap-1 rounded-xl border border-white/10 bg-slate-900 p-3 shadow-2xl">
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="index.html">Головна</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="tracks.html">Траси та Програми</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-amber-500 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="telemetry.html" aria-current="page">Телеметрія</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="instructors.html">Інструктори</a></li>
+          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html#booking">Start Free Trial</a></li>
+        </ul>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <section class="px-4 py-16 sm:px-6 md:py-24 lg:px-8" aria-labelledby="page-title">
+      <article class="mx-auto max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">Telemetry Lab · 100 Hz</p>
+        <h1 id="page-title" class="mt-3 max-w-4xl font-[Space_Grotesk] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">Точність кожного гальмування. Рішення кожного пілота.</h1>
+        <p class="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg">Досліджуйте швидкість, тиск гальм, положення дроселя й керма, щоб зрозуміти, де народжується час на колі.</p>
+        <div class="mt-9 overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
+          <div class="flex flex-col gap-2 border-b border-white/10 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+            <div>
+              <h2 class="font-semibold text-white">Відеоаналіз кола з телеметрією</h2>
+              <p class="mt-1 text-sm text-slate-400">Onboard-відео та накладені канали швидкості</p>
+            </div>
+            <span class="inline-flex min-h-8 items-center gap-2 self-start rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 text-xs font-medium text-emerald-300 sm:self-center"><span class="h-2 w-2 animate-pulse rounded-full bg-emerald-400" aria-hidden="true"></span>Демо-перегляд</span>
+          </div>
+          <div class="aspect-video w-full rounded-xl border border-slate-800 shadow-2xl overflow-hidden lg:rounded-2xl bg-black">
+            <iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/dhOt7VkXE68" title="Charles Leclerc Monaco 2024 pole lap — onboard with telemetry" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p class="px-4 py-3 text-xs leading-5 text-slate-400 sm:px-6">Відео з публічної гоночної сесії використовується як візуальний приклад. Ця сторінка не є офіційним джерелом телеметрії команди чи чемпіонату.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="border-y border-white/5 bg-slate-900/35 px-4 py-16 sm:px-6 md:py-24 lg:px-8" aria-labelledby="lap-title">
+      <article class="mx-auto max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber-500">Reference lap · Monaco</p>
+        <h2 id="lap-title" class="mt-3 max-w-4xl font-[Space_Grotesk] text-3xl font-bold text-white sm:text-4xl">Аналіз еталонного кола: Шарль Леклер (Monaco GP 2024 Qualifying P1)</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-slate-400">Нижче наведені характеристики системи збору даних і схематичні графіки каналів. Графіки ілюструють формат аналізу, а не відтворюють офіційний дамп телеметрії Ferrari чи FIA.</p>
+
+        <section class="mt-8 rounded-2xl border border-white/10 bg-slate-950 p-5 sm:p-7" aria-labelledby="vehicle-data-title">
+          <h3 id="vehicle-data-title" class="text-lg font-semibold text-white">Технічні характеристики телеметрії</h3>
+          <dl class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Частота оновлення</dt><dd class="mt-1 font-semibold text-white">100 Гц</dd></div>
+            <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Системи аналізу</dt><dd class="mt-1 font-semibold text-white">MoTeC / Marelli WinTAX</dd></div>
+            <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Точність GPS-траєкторії</dt><dd class="mt-1 font-semibold text-white">±2 см</dd></div>
+            <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Канал гальмування</dt><dd class="mt-1 font-semibold text-white">Brake Pressure Trace</dd></div>
+            <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Керування</dt><dd class="mt-1 font-semibold text-white">Throttle Angle · Steering Input</dd></div>
+            <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Динамічне навантаження</dt><dd class="mt-1 font-semibold text-white">G-Force Dynamic Load</dd></div>
+          </dl>
+        </section>
+
+        <section class="mt-8 rounded-2xl border border-white/10 bg-slate-950 p-5 sm:p-7" aria-labelledby="scrubber-title">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 id="scrubber-title" class="font-semibold text-white">Інтерактивний огляд кола</h3>
+              <p class="mt-1 text-sm text-slate-400">Переміщуйте повзунок, щоб пройти дистанцію кола.</p>
+            </div>
+            <output id="lap-progress-label" class="font-mono text-sm text-amber-500" for="lap-progress">Дистанція: 0%</output>
+          </div>
+          <label class="sr-only" for="lap-progress">Позиція на дистанції кола, від нуля до ста відсотків</label>
+<input id="lap-progress" class="mt-5 min-h-11 w-full cursor-pointer accent-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" type="range" min="0" max="100" value="0">
+          <div class="mt-3 flex justify-between text-xs text-slate-500"><span>Старт / Sainte Devote</span><span>Grand Hotel Hairpin</span><span>Фініш</span></div>
+          <svg class="mt-4 h-20 w-full" viewBox="0 0 1000 80" role="img" aria-labelledby="lap-track-title lap-track-desc">
+            <title id="lap-track-title">Схематична дистанція кола Монако</title>
+            <desc id="lap-track-desc">Лінія показує позицію на колі від старту через Sainte Devote та Grand Hotel Hairpin до фінішу.</desc>
+            <path d="M20 42 H980" fill="none" stroke="#334155" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M20 42 H980" fill="none" stroke="#DC2626" stroke-width="4" stroke-linecap="round"></path>
+            <circle id="lap-marker" cx="20" cy="42" r="11" fill="#F59E0B" stroke="#fff" stroke-width="3"></circle>
+            <circle cx="125" cy="42" r="6" fill="#fff"></circle><circle cx="655" cy="42" r="6" fill="#fff"></circle>
+          </svg>
+        </section>
+
+        <ul class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <li>
+            <article           class="h-full rounded-2xl border border-white/10 bg-slate-950 p-5 sm:p-6">
+              <h3 class="text-lg font-semibold text-white">Brake Pressure Trace</h3>
+              <p class="mt-1 text-sm text-slate-400">Sainte Devote · Grand Hotel Hairpin</p>
+              <div class="mt-5 overflow-hidden rounded-xl bg-slate-900 p-3 sm:p-4">
+                <svg class="w-full" viewBox="0 0 640 250" role="img" aria-labelledby="brake-title brake-desc">
+                  <title id="brake-title">Демонстраційний графік тиску гальм</title>
+                  <desc id="brake-desc">Порівняння еталонної та пізнішої на 12 метрів точки гальмування перед Sainte Devote та Grand Hotel Hairpin.</desc>
+                  <path d="M54 20 V205 H620 M54 160 H620 M54 110 H620 M54 60 H620" fill="none" stroke="#334155" stroke-width="1"></path>
+                  <path d="M70 196 C125 196 145 190 166 62 S213 50 245 190 S315 194 340 78 S385 48 416 191 S497 196 520 83 S563 58 594 193" fill="none" stroke="#94A3B8" stroke-width="4" stroke-dasharray="8 7"></path>
+                  <path d="M90 196 C145 196 163 189 185 63 S232 49 264 190 S334 194 359 77 S404 47 435 191 S516 196 539 82 S582 58 610 193" fill="none" stroke="#DC2626" stroke-width="5"></path>
+                  <text x="12" y="33" fill="#CBD5E1" font-size="12">100%</text><text x="25" y="207" fill="#94A3B8" font-size="12">0</text>
+                  <text x="108" y="230" fill="#CBD5E1" font-size="12">Sainte Devote</text><text x="376" y="230" fill="#CBD5E1" font-size="12">Grand Hotel Hairpin</text>
+                  <text x="174" y="42" fill="#F59E0B" font-size="12">+12 м</text><text x="429" y="42" fill="#F59E0B" font-size="12">+12 м</text>
+                </svg>
+              </div>
+              <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-400">
+                <span class="inline-flex items-center gap-2"><span class="h-0.5 w-5 bg-red-600"></span>Точка гальмування +12 м</span>
+                <span class="inline-flex items-center gap-2"><span class="h-0.5 w-5 border-t-2 border-dashed border-slate-400"></span>Еталонне гальмування</span>
+              </div>
+              <p class="mt-3 text-sm leading-6 text-slate-300">Порівняйте контрольоване зміщення точки гальмування на 12 метрів у двох зонах різкого сповільнення.</p>
+            </article>
+          </li>
+          <li>
+            <article class="h-full rounded-2xl border border-white/10 bg-slate-950 p-5 sm:p-6">
+              <h3 class="text-lg font-semibold text-white">Speed Telemetry Trace</h3>
+              <p class="mt-1 text-sm text-slate-400">Швидкість, км/год · схема каналу</p>
+              <div class="mt-5 overflow-hidden rounded-xl bg-slate-900 p-3 sm:p-4">
+                <svg class="w-full" viewBox="0 0 640 250" role="img" aria-labelledby="speed-title speed-desc">
+                  <title id="speed-title">Демонстраційний графік швидкості від 290 до 75 кілометрів на годину</title>
+                  <desc id="speed-desc">Лінія швидкості знижується від 290 кілометрів на годину на прямій до 75 перед поворотом.</desc>
+                  <path d="M54 20 V205 H620 M54 160 H620 M54 110 H620 M54 60 H620" fill="none" stroke="#334155" stroke-width="1"></path>
+                  <path d="M60 42 C135 44 175 48 215 54 S280 72 315 88 S365 140 400 166 S450 184 490 188 S550 190 610 190" fill="none" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"></path>
+                  <circle cx="60" cy="42" r="6" fill="#F59E0B"></circle><circle cx="610" cy="190" r="6" fill="#F59E0B"></circle>
+                  <text x="58" y="30" fill="#F8FAFC" font-size="14">290</text><text x="573" y="180" fill="#F8FAFC" font-size="14">75</text>
+                  <text x="54" y="230" fill="#CBD5E1" font-size="12">Пряма</text><text x="542" y="230" fill="#CBD5E1" font-size="12">Гальмування</text>
+                </svg>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-slate-300">Від 290 км/год на прямій до 75 км/год у зоні повороту — читайте профіль швидкості разом із гальмівною фазою.</p>
+            </article>
+          </li>
+          <li>
+            <article class="h-full rounded-2xl border border-white/10 bg-slate-950 p-5 sm:p-6">
+              <h3 class="text-lg font-semibold text-white">Throttle % &amp; Steering Angle</h3>
+              <p class="mt-1 text-sm text-slate-400">Дросельна заслінка та кут керма · нормалізована шкала</p>
+              <div class="mt-5 overflow-hidden rounded-xl bg-slate-900 p-3 sm:p-4">
+                <svg class="w-full" viewBox="0 0 640 250" role="img" aria-labelledby="control-title control-desc">
+                  <title id="control-title">Графік дросельної заслінки та кута керма</title>
+                  <desc id="control-desc">Дросель відкривається на виході з повороту, а кут керма змінюється відповідно до траєкторії.</desc>
+                  <path d="M54 20 V205 H620 M54 160 H620 M54 110 H620 M54 60 H620" fill="none" stroke="#334155" stroke-width="1"></path>
+                  <path d="M60 175 C130 174 165 178 205 180 S255 182 280 178 S315 145 338 130 S375 105 400 92 S450 69 480 55 S545 35 610 30" fill="none" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"></path>
+                  <path d="M60 72 C105 65 134 72 165 96 S218 145 255 152 S303 141 337 119 S390 82 425 85 S475 130 510 139 S570 115 610 85" fill="none" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"></path>
+                  <text x="12" y="33" fill="#CBD5E1" font-size="12">100%</text><text x="25" y="207" fill="#94A3B8" font-size="12">0</text>
+                  <text x="54" y="230" fill="#CBD5E1" font-size="12">Вхід у поворот</text><text x="508" y="230" fill="#CBD5E1" font-size="12">Вихід</text>
+                </svg>
+              </div>
+              <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-400">
+                <span class="inline-flex items-center gap-2"><span class="h-0.5 w-5 bg-amber-500"></span>Дросель, %</span>
+                <span class="inline-flex items-center gap-2"><span class="h-0.5 w-5 bg-sky-400"></span>Кут керма</span>
+              </div>
+              <p class="mt-3 text-sm leading-6 text-slate-300">Співвіднесіть момент відкриття дроселя з роботою кермом для плавнішого виходу з повороту.</p>
+            </article>
+          </li>
+          <li>
+            <article class="flex h-full flex-col rounded-2xl border border-white/10 bg-slate-950 p-5 sm:p-6">
+              <h3 class="text-lg font-semibold text-white">Порівняльна дельта часу</h3>
+              <p class="mt-1 text-sm text-slate-400">Порівняння часу кола</p>
+              <div class="my-auto py-10 text-center">
+                <p class="font-[Space_Grotesk] text-6xl font-bold tracking-tight text-emerald-400 sm:text-7xl">−0.184<span class="text-3xl">s</span></p>
+                <p class="mt-3 text-sm text-slate-300">швидше за обране порівняльне коло</p>
+                <div class="mx-auto mt-8 flex max-w-sm items-center gap-3" aria-label="Візуальна шкала дельти часу: мінус 0,184 секунди">
+                  <span class="h-2 flex-1 rounded-full bg-slate-900"></span>
+                  <span class="h-3 w-3 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20"></span>
+                  <span class="h-2 flex-1 rounded-full bg-emerald-400/40"></span>
+                </div>
+              </div>
+              <p class="text-sm leading-6 text-slate-400">Від’ємна дельта означає покращення часу відносно базового кола. Значення на цій схемі наведено для ілюстрації порівняння.</p>
+            </article>
+          </li>
+        </ul>
+
+        <button id="open-telemetry-modal" class="mt-10 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-slate-900 px-6 font-semibold text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300 sm:w-auto" type="button" aria-haspopup="dialog" aria-controls="telemetry-modal">
+          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>Забронювати аналітичний заїзд
+        </button>
+      </article>
+    </section>
+
+    <div id="telemetry-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" aria-hidden="true" hidden>
+      <section class="relative w-full max-w-md rounded-2xl border border-white/10 bg-slate-900 p-6 shadow-2xl sm:p-8" role="dialog" aria-modal="true" aria-labelledby="telemetry-modal-title" aria-describedby="telemetry-modal-description">
+        <button id="close-telemetry-modal" class="absolute right-4 top-4 rounded-md p-2 text-slate-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="button" aria-label="Закрити вікно">✕</button>
+        <h3 id="telemetry-modal-title" class="pr-8 text-xl font-bold text-white">Отримати повний аналіз телеметрії</h3>
+        <p id="telemetry-modal-description" class="mt-3 text-sm leading-6 text-slate-300">Введіть свій Email, щоб ми надіслали розгорнутий PDF-звіт з 48 каналами даних (MoTeC / WinTAX) або зв'язалися для налаштування сесії.</p>
+        <form id="telemetry-form" class="mt-4">
+          <label class="block text-sm font-medium text-slate-200" for="telemetry-email">Email</label>
+          <input id="telemetry-email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" class="mt-2 min-h-12 w-full rounded-xl border border-white/10 bg-slate-950 px-4 text-sm text-white placeholder-slate-500 transition focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300">
+          <label class="mt-4 block text-sm font-medium text-slate-200" for="telemetry-track">Автодром <span class="text-slate-400">(необов'язково)</span></label>
+          <select id="telemetry-track" name="track" class="mt-2 min-h-12 w-full rounded-xl border border-white/10 bg-slate-950 px-4 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300">
+            <option class="bg-slate-900 text-slate-200" value="">Оберіть автодром</option>
+            <option class="bg-slate-900 text-slate-200" value="monza">Monza</option>
+            <option class="bg-slate-900 text-slate-200" value="spa">Spa</option>
+            <option class="bg-slate-900 text-slate-200" value="nurburgring">Nürburgring</option>
+          </select>
+          <p class="mt-3 text-xs leading-5 text-slate-400">Демонстраційна форма: надсилання звіту стане доступним після підключення серверної обробки.</p>
+          <button type="submit" class="mt-4 min-h-12 w-full rounded-xl bg-red-600 font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 transition duration-300">Надіслати звіт на пошту</button>
+          <p id="telemetry-feedback" class="mt-3 text-sm text-amber-500" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/10 bg-white px-4 py-10 dark:bg-slate-950 sm:px-6 lg:px-8">
+    <section class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" aria-label="Інформація про компанію">
+      <article><a class="inline-flex min-h-11 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна"><img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy"></a><p class="mt-3 max-w-xs text-sm leading-6 text-slate-400">Трековий досвід і точна телеметрія для пілотів, які прагнуть більшого.</p></article>
+      <nav aria-label="Розділи сайту"><h2 class="text-sm font-semibold uppercase tracking-wider text-white">Розділи</h2><ul class="mt-3 space-y-2 text-sm text-slate-400"><li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li><li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="tracks.html">Траси та Програми</a></li><li><a class="inline-flex min-h-11 items-center text-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="telemetry.html" aria-current="page">Телеметрія</a></li><li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li></ul></nav>
+      <nav aria-label="Соціальні мережі"><h2 class="text-sm font-semibold uppercase tracking-wider text-white">Соціальні мережі</h2><ul class="mt-3 flex gap-3"><li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="https://www.instagram.com/" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li><li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="https://www.youtube.com/" aria-label="YouTube" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li></ul></nav>
+      <address class="text-sm not-italic text-slate-400"><h2 class="text-sm font-semibold uppercase tracking-wider text-white">Контакти</h2><a class="mt-3 inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="mailto:info@example.com">info@example.com</a></address>
+    </section>
+    <section class="mx-auto mt-8 max-w-7xl border-t border-white/10 pt-5" aria-label="Правова інформація та стан систем"><p class="text-xs leading-5 text-slate-500">© 2026 Ferrari Track Experience &amp; Telemetry Lab. Незалежна демонстраційна концепція, не пов’язана з Ferrari S.p.A.</p><p class="mt-4 inline-flex items-center gap-2 text-xs font-medium text-slate-300"><span class="relative flex h-2.5 w-2.5" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span></span>System Status: Operational</p></section>
+  </footer>
+
+  <script>
+    const lapProgress = document.getElementById("lap-progress");
+    const lapMarker = document.getElementById("lap-marker");
+    const lapProgressLabel = document.getElementById("lap-progress-label");
+    const openTelemetryModalButton = document.getElementById("open-telemetry-modal");
+    const closeTelemetryModalButton = document.getElementById("close-telemetry-modal");
+    const telemetryModal = document.getElementById("telemetry-modal");
+    const telemetryForm = document.getElementById("telemetry-form");
+    const telemetryEmail = document.getElementById("telemetry-email");
+    const telemetryFeedback = document.getElementById("telemetry-feedback");
+    let telemetryCloseTimer;
+
+    const closeTelemetryModal = () => {
+      telemetryModal.classList.add("hidden");
+      telemetryModal.setAttribute("aria-hidden", "true");
+      telemetryModal.hidden = true;
+      document.body.classList.remove("overflow-hidden");
+      openTelemetryModalButton.focus();
+      window.clearTimeout(telemetryCloseTimer);
+    };
+
+    openTelemetryModalButton.addEventListener("click", () => {
+      telemetryFeedback.textContent = "";
+      telemetryModal.hidden = false;
+      telemetryModal.classList.remove("hidden");
+      telemetryModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("overflow-hidden");
+      telemetryEmail.focus();
+    });
+
+    closeTelemetryModalButton.addEventListener("click", closeTelemetryModal);
+    telemetryModal.addEventListener("click", (event) => {
+      if (event.target === telemetryModal) {
+        closeTelemetryModal();
+      }
+    });
+
+    telemetryModal.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeTelemetryModal();
+      }
+
+      if (event.key === "Tab") {
+        const focusableElements = telemetryModal.querySelectorAll("button, input, select");
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
+      }
+    });
+
+    telemetryForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      telemetryFeedback.textContent = "Форму перевірено. Надсилання звіту на email стане можливим після підключення серверної обробки.";
+      window.clearTimeout(telemetryCloseTimer);
+      telemetryCloseTimer = window.setTimeout(closeTelemetryModal, 2000);
+    });
+
+    lapProgress.addEventListener("input", () => {
+      const progress = Number(lapProgress.value);
+      const markerPosition = 20 + (progress / 100) * 960;
+      lapMarker.setAttribute("cx", String(markerPosition));
+      lapProgressLabel.value = `Дистанція: ${progress}%`;
+      lapProgressLabel.textContent = `Дистанція: ${progress}%`;
+    });
+  </script>
+</body>
+</html>

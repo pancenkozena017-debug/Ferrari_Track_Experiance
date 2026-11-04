@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Інструктори Monza Experience | Ferrari Track Experience &amp; Telemetry Lab</title>
+  <meta name="description" content="Оберіть інструктора для програми Monza Experience за мовою, спеціалізацією та досвідом.">
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: "class" };</script>
+  <script src="js/theme-toggle.js" defer></script>
+</head>
+<body class="min-w-0 overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Головна навігація">
+      <a class="flex min-h-11 shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+        <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+      </a>
+      <ul class="hidden items-center gap-5 xl:flex">
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="tracks.html">Траси та Програми</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Телеметрія</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="instructors.html" aria-current="page">Інструктори</a></li>
+      </ul>
+      <button id="theme-toggle" type="button" aria-label="Змінити тему" class="p-2 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-800/20 dark:hover:bg-slate-800 transition-colors">
+        <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+        <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
+      </button>
+      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="index.html#booking">Забронювати</a>
+      <details class="group relative xl:hidden">
+        <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації"><i class="fa-solid fa-bars group-open:hidden" aria-hidden="true"></i><i class="fa-solid fa-xmark hidden group-open:inline" aria-hidden="true"></i></summary>
+        <ul class="absolute right-0 top-full z-50 mt-3 flex w-[min(20rem,calc(100vw-2rem))] flex-col gap-1 rounded-xl border border-white/10 bg-slate-900 p-3 shadow-2xl">
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="index.html">Головна</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="tracks.html">Траси та Програми</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="telemetry.html">Телеметрія</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-amber-500 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="instructors.html" aria-current="page">Інструктори</a></li>
+          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html#booking">Забронювати</a></li>
+        </ul>
+      </details>
+    </nav>
+  </header>
+
+  <main id="main" class="bg-slate-950">
+    <section class="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-12 lg:px-8" aria-labelledby="page-title">
+      <nav class="mb-5 text-xs text-slate-400" aria-label="Хлібні крихти">
+        <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <li><a class="transition-colors hover:text-white duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="index.html">Головна</a></li>
+          <li aria-hidden="true">→</li>
+          <li><a class="transition-colors hover:text-white duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="tracks.html">Траси та Програми</a></li>
+          <li aria-hidden="true">→</li>
+          <li><a class="transition-colors hover:text-white duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="tracks.html#monza">Monza Experience</a></li>
+          <li aria-hidden="true">→</li>
+          <li class="text-slate-300" aria-current="page">Інструктори</li>
+        </ol>
+      </nav>
+
+      <h1 class="mb-2 text-3xl font-bold text-white md:text-4xl" id="page-title">Інструктори програми Monza Experience</h1>
+      <p class="mb-6 text-sm text-slate-400">Оберіть супровід за мовою, спеціалізацією та досвідом роботи з трековою телеметрією.</p>
+
+      <aside class="mb-10 flex flex-col gap-5 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 sm:flex-row sm:items-center sm:justify-between" aria-label="Обрана програма">
+        <div>
+          <p class="font-semibold text-white">Обрана програма: Monza Experience</p>
+          <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-400">Під час вибору враховуйте мову супроводу, спеціалізацію інструктора та сумісність із форматом сесії.</p>
+        </div>
+        <a class="inline-flex min-h-11 w-full shrink-0 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm text-slate-200 transition hover:bg-slate-800 sm:w-auto duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="index.html#booking">
+          Забронювати заїзд
+        </a>
+      </aside>
+
+      <div class="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <article class="instructor-card flex h-full min-w-0 flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70 transition-all duration-300 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+          <div class="flex flex-1 flex-col justify-between">
+            <img src="assets/images/pl1.svg" alt="Марко Тревізан" class="h-56 w-full object-cover object-top" loading="lazy" width="411" height="232">
+            <div class="flex flex-1 flex-col p-6">
+            <p class="mb-1 text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-amber-400">Персональний коуч</p>
+            <h2 class="mb-4 text-2xl font-bold text-slate-900 dark:text-white">Марко Тревізан</h2>
+            <dl class="mb-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Досвід:</dt> <dd class="inline">8 років (Fanatec GT World Challenge / Ferrari Challenge)</dd></div>
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Мови:</dt> <dd class="inline">Італійська, Англійська, Українська</dd></div>
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Спеціалізація:</dt> <dd class="inline">Гальмування</dd></div>
+              <div class="flex items-center gap-1 text-sm font-medium text-slate-800 dark:text-slate-200"><dt>Рейтинг:</dt> <dd>⭐ 4.98 / 5.0</dd></div>
+            </dl>
+            <blockquote class="my-4 flex-1 rounded-xl border border-slate-200/60 bg-slate-100 p-3.5 text-xs italic leading-relaxed text-slate-600 dark:border-slate-700/50 dark:bg-slate-800/60 dark:text-slate-300">
+              <p>«Марко навчив мене використовувати 100% потенціалу гальм без блокування коліс. Час кола у Монці покращився на 1.8 секунди!»</p>
+              <footer class="mt-2 not-italic text-slate-400">Алекс М. - 12.05.2025 · Сесія Monza GT3</footer>
+            </blockquote>
+            </div>
+          </div>
+          <div class="mt-auto px-5 pb-5 pt-4">
+            <button class="mb-2.5 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-center text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700" type="button" data-profile="marco" aria-haspopup="dialog">Профіль та сертифікати</button>
+            <a class="w-full rounded-xl bg-red-800 px-4 py-2.5 text-center text-sm font-bold text-white shadow-md shadow-red-600/20 transition-colors hover:bg-red-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:bg-red-800 dark:hover:bg-red-900" href="index.html?instructor=marco#booking">Обрати інструктора</a>
+          </div>
+        </article>
+
+        <article class="instructor-card flex h-full min-w-0 flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70 transition-all duration-300 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+          <div class="flex flex-1 flex-col justify-between">
+            <img src="assets/images/pl2.svg" alt="Маттео Россі" class="h-56 w-full object-cover object-top" loading="lazy" width="411" height="247">
+            <div class="flex flex-1 flex-col p-6">
+            <p class="mb-1 text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-amber-400">Гоночний інженер</p>
+            <h2 class="mb-4 text-2xl font-bold text-slate-900 dark:text-white">Маттео Россі</h2>
+            <dl class="mb-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Досвід:</dt> <dd class="inline">12 років (WEC &amp; 24 Hours of Le Mans)</dd></div>
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Мови:</dt> <dd class="inline">Англійська</dd></div>
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Спеціалізація:</dt> <dd class="inline">Телеметрія</dd></div>
+              <div class="flex items-center gap-1 text-sm font-medium text-slate-800 dark:text-slate-200"><dt>Рейтинг:</dt> <dd>⭐ 5.00 / 5.0</dd></div>
+            </dl>
+            <blockquote class="my-4 flex-1 rounded-xl border border-slate-200/60 bg-slate-100 p-3.5 text-xs italic leading-relaxed text-slate-600 dark:border-slate-700/50 dark:bg-slate-800/60 dark:text-slate-300">
+              <p>«Маттео миттєво розклав мої графіки телеметрії по мілісекундах і чітко вказав, де саме я втрачав швидкість...»</p>
+              <footer class="mt-2 not-italic text-slate-400">Дмитро К. - 28.08.2025</footer>
+            </blockquote>
+            </div>
+          </div>
+          <div class="mt-auto px-5 pb-5 pt-4">
+            <button class="mb-2.5 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-center text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700" type="button" data-profile="matteo" aria-haspopup="dialog">Профіль та сертифікати</button>
+            <a class="w-full rounded-xl bg-red-800 px-4 py-2.5 text-center text-sm font-bold text-white shadow-md shadow-red-600/20 transition-colors hover:bg-red-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:bg-red-800 dark:hover:bg-red-900" href="index.html?instructor=matteo#booking">Обрати інструктора</a>
+          </div>
+        </article>
+
+        <article class="instructor-card flex h-full min-w-0 flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70 transition-all duration-300 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+          <div class="flex flex-1 flex-col justify-between">
+            <img src="assets/images/pl3.svg" alt="Лука Бенетті" class="h-56 w-full object-cover object-top" loading="lazy" width="411" height="254">
+            <div class="flex flex-1 flex-col p-6">
+            <p class="mb-1 text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-amber-400">Інструктор з пілотування</p>
+            <h2 class="mb-4 text-2xl font-bold text-slate-900 dark:text-white">Лука Бенетті</h2>
+            <dl class="mb-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Досвід:</dt> <dd class="inline">6 років (FIA Formula 3 / Regional Championship)</dd></div>
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Мови:</dt> <dd class="inline">Італійська, Англійська, Німецька</dd></div>
+              <div><dt class="inline font-semibold text-slate-900 dark:text-slate-100">Спеціалізація:</dt> <dd class="inline">Апекс і траєкторія</dd></div>
+              <div class="flex items-center gap-1 text-sm font-medium text-slate-800 dark:text-slate-200"><dt>Рейтинг:</dt> <dd>⭐ 4.95 / 5.0</dd></div>
+            </dl>
+            <blockquote class="my-4 flex-1 rounded-xl border border-slate-200/60 bg-slate-100 p-3.5 text-xs italic leading-relaxed text-slate-600 dark:border-slate-700/50 dark:bg-slate-800/60 dark:text-slate-300">
+              <p>«Завдяки Луці я нарешті відпрацював правильну траєкторію у зв'язці Variante della Roggia...»</p>
+              <footer class="mt-2 not-italic text-slate-400">Сергій П. - 04.09.2025</footer>
+            </blockquote>
+            </div>
+          </div>
+          <div class="mt-auto px-5 pb-5 pt-4">
+            <button class="mb-2.5 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-center text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700" type="button" data-profile="luca" aria-haspopup="dialog">Профіль та сертифікати</button>
+            <a class="w-full rounded-xl bg-red-800 px-4 py-2.5 text-center text-sm font-bold text-white shadow-md shadow-red-600/20 transition-colors hover:bg-red-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:bg-red-800 dark:hover:bg-red-900" href="index.html?instructor=luca#booking">Обрати інструктора</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div
+    class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+    id="instructor-profile-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="profile-modal-title"
+    aria-hidden="true"
+    hidden
+  >
+    <div class="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-slate-800 bg-slate-900 p-6 text-white shadow-2xl md:p-8" tabindex="-1">
+      <div class="mb-6 flex items-start justify-between gap-4 border-b border-slate-800 pb-3">
+        <h2 class="text-xl font-bold text-white md:text-2xl" id="profile-modal-title">Розгорнутий профіль спеціаліста</h2>
+        <button class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-300 transition hover:bg-slate-800 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" id="profile-modal-close" type="button" aria-label="Закрити профіль">
+          <i class="fa-solid fa-xmark text-xl" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="profile-modal-content"></div>
+    </div>
+  </div>
+
+  <template id="profile-marco">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-8">
+      <div>
+        <img src="assets/images/pl1.svg" alt="Марко Тревізан" class="w-full rounded-xl object-cover" loading="lazy" width="411" height="232">
+        <div class="mt-4 rounded-2xl border border-amber-500/30 bg-slate-950/60 p-4 text-sm leading-6 text-slate-300">
+          <p class="font-semibold text-amber-500">Сертифікат</p>
+          <p class="mt-2">FIA Master Coaching License #IT-88492 / 15.01.2024. ACI Sport Italy &amp; FIA Safety Commission (активна ліцензія з підтвердженням)</p>
+        </div>
+      </div>
+      <div class="min-w-0">
+        <h3 class="text-2xl font-bold text-white">Марко Тревізан (Marco Trevisan)</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-300">Персональний коуч · Екс-пілот Ferrari Challenge Europe, сертифікований тренер Scuderia Academy з 8-річним досвідом підготовки пілотів GT.</p>
+        <dl class="mt-5 space-y-4 text-sm leading-6 text-slate-300">
+          <div><dt class="font-semibold text-white">GT</dt><dd>Fanatec GT World Challenge Europe (Pro-Am Class), 2018–2024, шеф-інструктор серії.</dd></div>
+          <div><dt class="font-semibold text-white">F3 / Endurance</dt><dd>Italian F3 Championship (2015–2017), призер 24 Hours of Spa (Pro-Am).</dd></div>
+          <div><dt class="font-semibold text-white">Спеціалізації</dt><dd>Робота з вагою автомобіля, Trail Braking (повільне відпускання гальм у повороті), контроль зчеплення.</dd></div>
+          <div><dt class="font-semibold text-white">Телеметрія</dt><dd>Аналіз тиску на педаль гальма (Brake Pressure Trace 100 Гц), порівняльний аналіз із еталонним колом заводського пілота Scuderia.</dd></div>
+          <div><dt class="font-semibold text-white">Мови</dt><dd>Італійська, Англійська, Українська.</dd></div>
+          <div><dt class="font-semibold text-white">Сертифікат</dt><dd>FIA Master Coach #IT-88492 / Статус: Підтверджено.</dd></div>
+        </dl>
+        <blockquote class="mt-5 border-l-2 border-amber-500 pl-4 text-sm italic leading-6 text-slate-300">
+          «Мій метод базується на поступовому зміщенні точки гальмування вглиб повороту за допомогою візуальних орієнтирів та відчуття балансу шасі. На сесії ми розбираємо кожне коло за допомогою датчиків телеметрії, знаходячи приховані резерви швидкості без ризику для боліда.»
+          <footer class="mt-2 not-italic text-slate-400">Філософія</footer>
+        </blockquote>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+      <button class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm text-slate-200 transition hover:bg-slate-800 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="button" data-close-profile>Згорнути профіль ↑</button>
+      <a class="inline-flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="index.html?instructor=marco#booking">Обрати інструктора</a>
+    </div>
+  </template>
+
+  <template id="profile-matteo">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-8">
+      <div>
+        <img src="assets/images/pl2.svg" alt="Маттео Россі" class="w-full rounded-xl object-cover" loading="lazy" width="411" height="247">
+        <div class="mt-4 rounded-2xl border border-amber-500/30 bg-slate-950/60 p-4 text-sm leading-6 text-slate-300">
+          <p class="font-semibold text-amber-500">Сертифікат</p>
+          <p class="mt-2">Motorsport Data Engineering Specialist #MTA-99201 / 10.11.2023. Politecnico di Milano &amp; Ferrari Telemetry Lab (офіційний верифікований сертифікат)</p>
+        </div>
+      </div>
+      <div class="min-w-0">
+        <h3 class="text-2xl font-bold text-white">Маттео Россі (Matteo Rossi)</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-300">Гоночний інженер · Провідний спеціаліст із цифрового аналізу даних та налаштування аеродинаміки болідів серії GT3 та LMH.</p>
+        <dl class="mt-5 space-y-4 text-sm leading-6 text-slate-300">
+          <div><dt class="font-semibold text-white">GT</dt><dd>Ferrari Challenge &amp; Michelin Le Mans Cup, 2016–2022, Lead Telemetry Engineer.</dd></div>
+          <div><dt class="font-semibold text-white">F3 / Endurance</dt><dd>FIA WEC (World Endurance Championship) &amp; 24 Hours of Le Mans (2019–2024).</dd></div>
+          <div><dt class="font-semibold text-white">Спеціалізації</dt><dd>Інтерпретація телеметрії 100 Гц, оптимізація кута атаки антикрила, баланс гальм та знос шин.</dd></div>
+          <div><dt class="font-semibold text-white">Телеметрія</dt><dd>Комплексна діагностика по 48 каналах даних (MoTeC &amp; Marelli WinTAX): розгін, бічні перевантаження 1.4G, ротація авто.</dd></div>
+          <div><dt class="font-semibold text-white">Мови</dt><dd>Італійська, Англійська.</dd></div>
+          <div><dt class="font-semibold text-white">Сертифікат</dt><dd>Lead Data Engineer #MTA-99201 / Статус: Підтверджено.</dd></div>
+        </dl>
+        <blockquote class="mt-5 border-l-2 border-amber-500 pl-4 text-sm italic leading-6 text-slate-300">
+          «Цифри не брешуть. Навчання зі мною — це математична точність. Ми перетворимо складні графіки швидкості, гальма та кута керма на прості зрозумілі підказки для вашого пілотування, що дозволить зрізати секунди з кожного сектора.»
+          <footer class="mt-2 not-italic text-slate-400">Філософія</footer>
+        </blockquote>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+      <button class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm text-slate-200 transition hover:bg-slate-800 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="button" data-close-profile>Згорнути профіль ↑</button>
+      <a class="inline-flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="index.html?instructor=matteo#booking">Обрати інструктора</a>
+    </div>
+  </template>
+
+  <template id="profile-luca">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-8">
+      <div>
+        <img src="assets/images/pl3.svg" alt="Лука Бенетті" class="w-full rounded-xl object-cover" loading="lazy" width="411" height="254">
+        <div class="mt-4 rounded-2xl border border-amber-500/30 bg-slate-950/60 p-4 text-sm leading-6 text-slate-300">
+          <p class="font-semibold text-amber-500">Сертифікат</p>
+          <p class="mt-2">Pro Race Instructor License #FI-44102 / 02.02.2024. FIA Driver Safety Committee &amp; ACI Sport (дійсний документ)</p>
+        </div>
+      </div>
+      <div class="min-w-0">
+        <h3 class="text-2xl font-bold text-white">Лука Бенетті (Luca Benetti)</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-300">Інструктор з пілотування · Майстер пілотування формульних болідів та спортпрототипів, експерт зі швидкісних зв'язок поворотів.</p>
+        <dl class="mt-5 space-y-4 text-sm leading-6 text-slate-300">
+          <div><dt class="font-semibold text-white">GT</dt><dd>Italian GT Championship (GT3 Cup), 2020–2024, офіційний тестовий пілот.</dd></div>
+          <div><dt class="font-semibold text-white">F3 / Endurance</dt><dd>FIA Formula 3 Regional Championship (2018–2022), 14 подіумів у серії.</dd></div>
+          <div><dt class="font-semibold text-white">Спеціалізації</dt><dd>Геометрія апексу, швидкий вихід на пряму, ментальна концентрація під час заїзду.</dd></div>
+          <div><dt class="font-semibold text-white">Телеметрія</dt><dd>Синхронізація відео з кабіни (POV 4K) та GPS-траєкторії високої точності для аналізу траєкторії.</dd></div>
+          <div><dt class="font-semibold text-white">Мови</dt><dd>Італійська, Англійська, Німецька.</dd></div>
+          <div><dt class="font-semibold text-white">Сертифікат</dt><dd>Pro Race Instructor #FI-44102 / Статус: Підтверджено.</dd></div>
+        </dl>
+        <blockquote class="mt-5 border-l-2 border-amber-500 pl-4 text-sm italic leading-6 text-slate-300">
+          «Моє завдання — поставити вам ідеальне бачення траєкторії та навчити відчувати граничне зчеплення шин. Ми відпрацюємо апекси до повного автоматизму з підказками у рацію під час заїзду, щоб ви почувалися впевнено на швидкостях за 250 км/год.»
+          <footer class="mt-2 not-italic text-slate-400">Філософія</footer>
+        </blockquote>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+      <button class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm text-slate-200 transition hover:bg-slate-800 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="button" data-close-profile>Згорнути профіль ↑</button>
+      <a class="inline-flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="index.html?instructor=luca#booking">Обрати інструктора</a>
+    </div>
+  </template>
+
+  <footer class="bg-white text-sm text-slate-400 dark:bg-slate-950" id="about">
+    <div class="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-16 lg:px-8 lg:py-20">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div>
+          <a href="index.html" class="inline-flex min-h-11 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" aria-label="Scuderia Telemetry Lab — головна">
+            <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-6 md:text-base">Трекові враження та аналіз телеметрії для водіїв, які прагнуть краще пізнати трасу й власний стиль керування.</p>
+        </div>
+
+        <nav aria-label="Навігація сайтом">
+          <h2 class="mb-4 text-base font-bold uppercase tracking-wider text-white md:text-lg">Навігація</h2>
+          <ul class="space-y-2 md:space-y-3">
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="index.html">Головна</a></li>
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="tracks.html">Траси та Програми</a></li>
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="telemetry.html">Телеметрія</a></li>
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="instructors.html" aria-current="page">Інструктори</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Послуги та корисна інформація">
+          <h2 class="mb-4 text-base font-bold uppercase tracking-wider text-white md:text-lg">Корисна інформація</h2>
+          <ul class="space-y-2 md:space-y-3">
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="mailto:info@example.com?subject=Правила%20безпеки">Запитати про правила безпеки</a></li>
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="mailto:info@example.com?subject=FAQ">Запитати про FAQ</a></li>
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="mailto:info@example.com?subject=Регламент%20треку">Запитати про регламент треку</a></li>
+            <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="mailto:info@example.com?subject=Ліцензії">Запитати про ліцензії</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="mb-4 text-base font-bold uppercase tracking-wider text-white md:text-lg">Контакти</h2>
+          <address class="space-y-3 text-sm not-italic md:text-base">
+            <p><span class="text-slate-400">Email:</span> <a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="mailto:info@example.com">info@example.com</a></p>
+            <p><span class="text-slate-400">Телефон:</span> <a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="tel:+390000000000">+39 000 000 0000</a></p>
+          </address>
+          <p class="mt-2 text-xs text-slate-400">Демонстраційні контактні дані.</p>
+          <form class="mt-6" aria-label="Підписка на розсилку">
+            <label class="mb-2 block text-sm font-semibold text-white" for="newsletter-email">Отримуйте новини телеметрії</label>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <input class="min-h-11 min-w-0 flex-1 rounded-lg border border-white/15 bg-slate-900 px-3 text-sm text-white placeholder-slate-400 focus:ring-2 focus:ring-red-500 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="Ваш email" required>
+              <button class="min-h-11 rounded-xl bg-red-600 px-4 font-semibold text-white transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 duration-300" type="submit">Підписатися</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm md:mt-12 md:flex-row md:items-center md:justify-between md:text-base">
+        <p>© 2026 Ferrari Track Experience &amp; Telemetry Lab</p>
+        <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Юридична інформація">
+          <a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="mailto:info@example.com?subject=Політика%20конфіденційності">Запитати про політику конфіденційності</a>
+          <a class="inline-flex min-h-11 items-center transition-colors hover:text-red-600 duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="mailto:info@example.com?subject=Умови%20використання">Запитати про умови використання</a>
+        </nav>
+      </div>
+      <p class="mt-4 text-xs leading-5 text-slate-400">Незалежна демонстраційна концепція. Не пов'язана з компанією Ferrari, її заводською командою чи адміністрацією автодромів.</p>
+      <p class="mt-4 inline-flex items-center text-xs text-slate-400">
+        <span class="mr-2 inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-500" aria-hidden="true"></span>
+        System Status: Operational
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const profileModal = document.getElementById("instructor-profile-modal");
+    const profileModalContent = document.getElementById("profile-modal-content");
+    const profileModalClose = document.getElementById("profile-modal-close");
+    let profileTrigger = null;
+
+    function openProfile(profileId, trigger) {
+      const profileTemplate = document.getElementById(`profile-${profileId}`);
+      if (!profileTemplate) {
+        throw new Error(`Профіль інструктора "${profileId}" не знайдено.`);
+      }
+
+      profileTrigger = trigger;
+      profileModalContent.replaceChildren(profileTemplate.content.cloneNode(true));
+      profileModal.classList.remove("hidden");
+      profileModal.hidden = false;
+      profileModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("overflow-hidden");
+      profileModalClose.focus();
+    }
+
+    function closeProfile() {
+      profileModal.classList.add("hidden");
+      profileModal.hidden = true;
+      profileModal.setAttribute("aria-hidden", "true");
+      profileModalContent.replaceChildren();
+      document.body.classList.remove("overflow-hidden");
+      profileTrigger?.focus();
+      profileTrigger = null;
+    }
+
+    document.querySelectorAll("[data-profile]").forEach((button) => {
+      button.addEventListener("click", () => {
+        openProfile(button.dataset.profile, button);
+      });
+    });
+
+    profileModal.addEventListener("click", (event) => {
+      if (event.target === profileModal || event.target.closest("[data-close-profile]")) {
+        closeProfile();
+      }
+    });
+
+    profileModalClose.addEventListener("click", closeProfile);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        if (!profileModal.hidden) {
+          closeProfile();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

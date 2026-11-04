@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Каталог програм Ferrari Track Experience на автодромах Monza, Spa-Francorchamps та Nürburgring Nordschleife.">
+  <meta name="theme-color" content="#0B0F17">
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <title>Траси та програми | Ferrari Track Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: "class" };</script>
+  <script src="js/theme-toggle.js" defer></script>
+</head>
+<body class="overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Головна навігація">
+      <a class="flex min-h-11 shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+        <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+      </a>
+      <ul class="hidden items-center gap-5 xl:flex">
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="tracks.html" aria-current="page">Траси та Програми</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Телеметрія</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li>
+      </ul>
+      <button id="theme-toggle" type="button" aria-label="Змінити тему" class="p-2 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-800/20 dark:hover:bg-slate-800 transition-colors">
+        <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+        <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
+      </button>
+      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="index.html#booking">Start Free Trial</a>
+      <details class="group relative xl:hidden">
+        <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації"><i class="fa-solid fa-bars group-open:hidden" aria-hidden="true"></i><i class="fa-solid fa-xmark hidden group-open:inline" aria-hidden="true"></i></summary>
+        <ul class="absolute right-0 top-full z-50 mt-3 flex w-[min(20rem,calc(100vw-2rem))] flex-col gap-1 rounded-xl border border-white/10 bg-slate-900 p-3 shadow-2xl">
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="index.html">Головна</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-amber-500 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="tracks.html" aria-current="page">Траси та Програми</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="telemetry.html">Телеметрія</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="instructors.html">Інструктори</a></li>
+          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html#booking">Start Free Trial</a></li>
+        </ul>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <section class="px-4 py-16 sm:px-6 md:py-24 lg:px-8" aria-labelledby="page-title">
+      <article class="mx-auto max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">Three legendary circuits</p>
+        <h1 id="page-title" class="mt-3 max-w-4xl font-[Space_Grotesk] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">Траси та програми</h1>
+        <p class="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg">Оберіть характер траси: максимальна швидкість в Італії, зміна висот у Бельгії чи витривалість на Nordschleife.</p>
+        <nav class="mt-7 flex flex-wrap gap-3" aria-label="Перейти до автодрому">
+          <a class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 text-sm text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="#monza">Monza</a>
+          <a class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 text-sm text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="#spa">Spa-Francorchamps</a>
+          <a class="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 text-sm text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="#nurburgring">Nürburgring Nordschleife</a>
+        </nav>
+      </article>
+    </section>
+
+    <section class="border-y border-white/5 bg-slate-900/35 px-4 py-16 sm:px-6 md:py-24 lg:px-8" aria-label="Каталог автодромів">
+      <ul class="mx-auto max-w-7xl space-y-8">
+        <li id="monza" class="scroll-mt-24">
+          <article class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950">
+            <header class="border-b border-white/10 p-5 sm:p-8">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">Italy · Monza</p>
+              <h2 class="mt-2 font-[Space_Grotesk] text-2xl font-bold text-white sm:text-3xl">Monza Circuit</h2>
+              <p class="mt-1 text-sm text-slate-400">Autodromo Nazionale Monza · Італія</p>
+            </header>
+            <div class="grid gap-6 p-5 sm:p-8 lg:grid-cols-2 lg:gap-8">
+              <section aria-labelledby="monza-details">
+                <h3 id="monza-details" class="text-lg font-semibold text-white">Конфігурація та характер</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-300">Гран-прі конфігурація поєднує довгі прямі з повільними шиканами та швидкими кривими. Низький рівень притискної сили робить особливо важливими гальмування з високої швидкості, стабільність на поребриках і вихід на довгі прямі.</p>
+                <dl class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Довжина кола</dt><dd class="mt-1 font-semibold text-white">5.793 км</dd></div>
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Повороти</dt><dd class="mt-1 font-semibold text-white">11</dd></div>
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Складність телеметрії</dt><dd class="mt-1 font-semibold text-amber-500">Висока</dd></div>
+                </dl>
+                <figure class="mt-6 rounded-2xl border border-white/10 bg-slate-900 p-4">
+                  <svg class="h-44 w-full" viewBox="0 0 640 220" role="img" aria-labelledby="monza-map-title monza-map-desc">
+                    <title id="monza-map-title">Схематичний контур траси Monza</title>
+                    <desc id="monza-map-desc">Схематичне зображення швидкого кільцевого автодрому з двома шиканами; не в масштабі.</desc>
+                    <path d="M75 132 L190 132 Q213 132 218 112 L227 76 L249 80 L242 116 L274 121 L286 83 L309 89 L299 126 L350 131 L450 131 Q467 131 474 115 L487 83 L511 87 L500 122 L535 127 L548 93 L571 99 L557 141 Q548 165 523 165 L370 165 L318 159 L285 166 L250 159 L215 165 L99 165 Q72 164 75 132 Z" fill="none" stroke="#DC2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle cx="75" cy="132" r="8" fill="#F59E0B"></circle>
+                    <text x="85" y="115" fill="#CBD5E1" font-size="16">START / FINISH</text>
+                  </svg>
+                  <figcaption class="mt-2 text-xs text-slate-400">Схематичний контур Grand Prix, не в масштабі.</figcaption>
+                </figure>
+              </section>
+              <section aria-labelledby="monza-location">
+                <h3 id="monza-location" class="text-lg font-semibold text-white">Локація автодрому</h3>
+                <p class="mt-2 text-sm text-slate-400">Viale di Vedano 5, 20900 Monza MB, Italy</p>
+                <div class="relative mt-4 h-64 w-full overflow-hidden rounded-xl border border-slate-800 shadow-lg">
+                  <iframe class="h-full w-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.8347890471!2d9.278703776840003!3d45.61899142344795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786b976b2e3e5d3%3A0x6a0c0b82f8115998!2sAutodromo%20Nazionale%20Monza!5e0!3m2!1suk!2sua!4v1710000000000!5m2!1suk!2sua" title="Інтерактивна Google Карта траси Autodromo Nazionale Monza" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""></iframe>
+                </div>
+                <a class="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 text-sm font-semibold text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:w-auto duration-300" href="index.html?track=monza#booking">Забронювати заїзд на цій трасі <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </section>
+            </div>
+          </article>
+        </li>
+
+        <li id="spa" class="scroll-mt-24">
+          <article class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950">
+            <header class="border-b border-white/10 p-5 sm:p-8">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">Belgium · Ardennes</p>
+              <h2 class="mt-2 font-[Space_Grotesk] text-2xl font-bold text-white sm:text-3xl">Circuit de Spa-Francorchamps</h2>
+              <p class="mt-1 text-sm text-slate-400">Stavelot · Бельгія</p>
+            </header>
+            <div class="grid gap-6 p-5 sm:p-8 lg:grid-cols-2 lg:gap-8">
+              <section aria-labelledby="spa-details">
+                <h3 id="spa-details" class="text-lg font-semibold text-white">Конфігурація та характер</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-300">Довга траса в Арденнах проходить крізь перепади висот, швидкі повороти й технічні зв’язки. Для телеметрії особливо важливо зіставляти швидкість входу, завантаження шасі та стабільність на виході з комбінацій на кшталт Eau Rouge–Raidillon.</p>
+                <dl class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Довжина кола</dt><dd class="mt-1 font-semibold text-white">7.004 км</dd></div>
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Повороти</dt><dd class="mt-1 font-semibold text-white">19</dd></div>
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Складність телеметрії</dt><dd class="mt-1 font-semibold text-amber-500">Дуже висока</dd></div>
+                </dl>
+                <figure class="mt-6 rounded-2xl border border-white/10 bg-slate-900 p-4">
+                  <svg class="h-44 w-full" viewBox="0 0 640 220" role="img" aria-labelledby="spa-map-title spa-map-desc">
+                    <title id="spa-map-title">Схематичний контур траси Spa-Francorchamps</title>
+                    <desc id="spa-map-desc">Схематичний довгий контур із послідовністю швидких поворотів і перепадів висот; не в масштабі.</desc>
+                    <path d="M90 166 L133 153 L165 133 L183 96 L210 72 L247 64 L281 77 L312 108 L335 132 L359 132 L382 110 L400 73 L425 55 L449 63 L461 91 L478 106 L509 100 L535 78 L561 84 L574 111 L553 134 L526 146 L498 160 L461 163 L429 151 L401 160 L371 176 L334 180 L296 166 L265 145 L236 128 L204 133 L180 153 L146 171 L112 180 Z" fill="none" stroke="#DC2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle cx="90" cy="166" r="8" fill="#F59E0B"></circle>
+                    <text x="92" y="204" fill="#CBD5E1" font-size="16">START / FINISH</text>
+                  </svg>
+                  <figcaption class="mt-2 text-xs text-slate-400">Схематичний контур Grand Prix, не в масштабі.</figcaption>
+                </figure>
+              </section>
+              <section aria-labelledby="spa-location">
+                <h3 id="spa-location" class="text-lg font-semibold text-white">Локація автодрому</h3>
+                <p class="mt-2 text-sm text-slate-400">Route du Circuit 55, 4970 Stavelot, Belgium</p>
+                <div class="relative mt-4 h-64 w-full overflow-hidden rounded-xl border border-slate-800 shadow-lg">
+                  <iframe class="h-full w-full border-0" src="https://maps.google.com/maps?q=Circuit%20de%20Spa-Francorchamps%2C%20Route%20du%20Circuit%2055%2C%20Stavelot%2C%20Belgium&amp;z=13&amp;output=embed" title="Інтерактивна Google Карта траси Circuit de Spa-Francorchamps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""></iframe>
+                </div>
+                <a class="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 text-sm font-semibold text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:w-auto duration-300" href="index.html?track=spa#booking">Забронювати заїзд на цій трасі <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </section>
+            </div>
+          </article>
+        </li>
+
+        <li id="nurburgring" class="scroll-mt-24">
+          <article class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950">
+            <header class="border-b border-white/10 p-5 sm:p-8">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">Germany · Eifel</p>
+              <h2 class="mt-2 font-[Space_Grotesk] text-2xl font-bold text-white sm:text-3xl">Nürburgring Nordschleife</h2>
+              <p class="mt-1 text-sm text-slate-400">Nürburg · Німеччина</p>
+            </header>
+            <div class="grid gap-6 p-5 sm:p-8 lg:grid-cols-2 lg:gap-8">
+              <section aria-labelledby="nurburgring-details">
+                <h3 id="nurburgring-details" class="text-lg font-semibold text-white">Конфігурація та характер</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-300">Nordschleife — довга, вузька й технічно насичена конфігурація серед пагорбів Айфеля. Послідовні сліпі повороти, зміни висоти та різні типи покриття вимагають порівнювати телеметрію сектор за сектором і уважно контролювати темп.</p>
+                <dl class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Довжина кола</dt><dd class="mt-1 font-semibold text-white">20.832 км</dd></div>
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Повороти</dt><dd class="mt-1 font-semibold text-white">73</dd></div>
+                  <div class="rounded-2xl border border-white/5 bg-slate-900 p-4"><dt class="text-xs text-slate-400">Складність телеметрії</dt><dd class="mt-1 font-semibold text-amber-500">Екстремальна</dd></div>
+                </dl>
+                <figure class="mt-6 rounded-2xl border border-white/10 bg-slate-900 p-4">
+                  <svg class="h-44 w-full" viewBox="0 0 640 220" role="img" aria-labelledby="ring-map-title ring-map-desc">
+                    <title id="ring-map-title">Схематичний контур траси Nürburgring Nordschleife</title>
+                    <desc id="ring-map-desc">Схематичний нерегулярний контур із численними поворотами та довгими ділянками; не в масштабі.</desc>
+                    <path d="M78 132 L97 111 L124 117 L141 91 L169 98 L184 73 L214 82 L225 109 L249 115 L264 91 L293 99 L307 72 L333 78 L345 105 L374 102 L390 75 L419 81 L432 110 L459 119 L474 91 L501 96 L510 126 L540 131 L555 106 L580 117 L570 145 L545 151 L527 175 L497 166 L480 190 L452 181 L439 154 L409 148 L395 175 L365 167 L350 193 L324 184 L313 156 L284 148 L266 173 L238 164 L222 187 L194 177 L180 151 L152 143 L135 169 L108 161 L96 142 Z" fill="none" stroke="#DC2626" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle cx="78" cy="132" r="8" fill="#F59E0B"></circle>
+                    <text x="82" y="207" fill="#CBD5E1" font-size="16">START / FINISH</text>
+                  </svg>
+                  <figcaption class="mt-2 text-xs text-slate-400">Схематичний контур Nordschleife, не в масштабі.</figcaption>
+                </figure>
+              </section>
+              <section aria-labelledby="nurburgring-location">
+                <h3 id="nurburgring-location" class="text-lg font-semibold text-white">Локація автодрому</h3>
+                <p class="mt-2 text-sm text-slate-400">Otto-Flimm-Straße, 53520 Nürburg, Germany</p>
+                <div class="relative mt-4 h-64 w-full overflow-hidden rounded-xl border border-slate-800 shadow-lg">
+                  <iframe class="h-full w-full border-0" src="https://maps.google.com/maps?q=N%C3%BCrburgring%20Nordschleife%2C%20Otto-Flimm-Stra%C3%9Fe%2C%20N%C3%BCrburg%2C%20Germany&amp;z=12&amp;output=embed" title="Інтерактивна Google Карта траси Nürburgring Nordschleife" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""></iframe>
+                </div>
+                <a class="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 text-sm font-semibold text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:w-auto duration-300" href="index.html?track=nurburgring#booking">Забронювати заїзд на цій трасі <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </section>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-white px-4 py-10 dark:bg-slate-950 sm:px-6 lg:px-8">
+    <section class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" aria-label="Інформація про компанію">
+      <article><a class="inline-flex min-h-11 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна"><img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy"></a><p class="mt-3 max-w-xs text-sm leading-6 text-slate-400">Трековий досвід і точна телеметрія для пілотів, які прагнуть більшого.</p></article>
+      <nav aria-label="Розділи сайту"><h2 class="text-sm font-semibold uppercase tracking-wider text-white">Розділи</h2><ul class="mt-3 space-y-2 text-sm text-slate-400"><li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li><li><a class="inline-flex min-h-11 items-center text-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="tracks.html" aria-current="page">Траси та Програми</a></li><li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Телеметрія</a></li><li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li></ul></nav>
+      <nav aria-label="Соціальні мережі"><h2 class="text-sm font-semibold uppercase tracking-wider text-white">Соціальні мережі</h2><ul class="mt-3 flex gap-3"><li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="https://www.instagram.com/" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li><li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="https://www.youtube.com/" aria-label="YouTube" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li></ul></nav>
+      <address class="text-sm not-italic text-slate-400"><h2 class="text-sm font-semibold uppercase tracking-wider text-white">Контакти</h2><a class="mt-3 inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="mailto:info@example.com">info@example.com</a></address>
+    </section>
+    <section class="mx-auto mt-8 max-w-7xl border-t border-white/10 pt-5" aria-label="Правова інформація та стан систем"><p class="text-xs leading-5 text-slate-500">© 2026 Ferrari Track Experience &amp; Telemetry Lab. Незалежна демонстраційна концепція, не пов’язана з Ferrari S.p.A.</p><p class="mt-4 inline-flex items-center gap-2 text-xs font-medium text-slate-300"><span class="relative flex h-2.5 w-2.5" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span></span>System Status: Operational</p></section>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Забронюйте Ferrari Track Experience на легендарних трасах Європи та отримайте персональний аналіз телеметрії.">
+  <meta name="theme-color" content="#0B0F17">
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <title>Ferrari Track Experience &amp; Telemetry Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    :root {
+      --color-brand: #D40000;
+      --color-brand-hover: #FF1E1E;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: "var(--color-brand)"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="js/theme-toggle.js" defer></script>
+</head>
+<body class="overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Головна навігація">
+      <a class="flex min-h-11 shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+        <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+      </a>
+      <ul class="hidden items-center gap-5 xl:flex">
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-current="page">Головна</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="tracks.html">Траси та Програми</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Телеметрія</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li>
+        <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="news.html">Новини</a></li>
+      </ul>
+      <button id="theme-toggle" type="button" aria-label="Змінити тему" class="p-2 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-800/20 dark:hover:bg-slate-800 transition-colors">
+        <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+        <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
+      </button>
+      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="#booking">Start Free Trial</a>
+      <details class="group relative xl:hidden">
+        <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації">
+          <i class="fa-solid fa-bars group-open:hidden" aria-hidden="true"></i><i class="fa-solid fa-xmark hidden group-open:inline" aria-hidden="true"></i>
+        </summary>
+        <ul class="absolute right-0 top-full z-50 mt-3 flex w-[min(20rem,calc(100vw-2rem))] flex-col gap-1 rounded-xl border border-white/10 bg-slate-900 p-3 shadow-2xl">
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="index.html" aria-current="page">Головна</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="tracks.html">Траси та Програми</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="telemetry.html">Телеметрія</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="instructors.html">Інструктори</a></li>
+          <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="news.html">Новини</a></li>
+          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="#booking">Start Free Trial</a></li>
+        </ul>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="relative isolate flex min-h-[38rem] items-center overflow-hidden bg-slate-950 bg-[url('assets/images/hero-bg.png')] bg-cover bg-[center_65%] px-4 py-16 sm:px-6 md:min-h-[42rem] md:bg-center md:py-24 lg:px-8" aria-labelledby="hero-title">
+      <span class="absolute inset-0 -z-10 bg-gradient-to-r from-white/95 via-white/75 to-white/10 dark:from-[#0B0F17] dark:via-[#0B0F17]/90 dark:to-[#0B0F17]/35" aria-hidden="true"></span>
+      <span class="absolute inset-0 -z-10 bg-gradient-to-t from-white/70 via-white/15 to-white/40 dark:from-[#0B0F17]/90 dark:via-[#0B0F17]/30 dark:to-[#0B0F17]/60 md:from-white/60 md:via-transparent md:to-white/20 dark:md:from-[#0B0F17]/80 dark:md:via-transparent dark:md:to-[#0B0F17]/20" aria-hidden="true"></span>
+      <article class="mx-auto w-full max-w-7xl">
+        <p class="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-amber-500 sm:text-sm">Precision. Performance. Progress.</p>
+        <h1 id="hero-title" class="max-w-4xl bg-gradient-to-r from-slate-900 via-slate-700 to-slate-600 bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent dark:from-white dark:via-slate-200 dark:to-slate-400 md:text-6xl">
+          Ferrari Track Experience &amp; Telemetry Lab
+        </h1>
+        <p class="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">Відчуйте легендарний трек за кермом Ferrari, а потім розберіть кожен поворот із професійною телеметрією та персональним коучингом.</p>
+        <a class="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-red-600 px-6 py-3 font-semibold text-white shadow-lg shadow-red-600/30 transition-transform hover:scale-105 hover:shadow-red-600/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 motion-reduce:transform-none sm:w-auto duration-300" href="#booking">
+          <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>Забронювати сесію
+        </a>
+        <p class="mt-5 text-sm text-slate-400"><i class="fa-solid fa-location-dot mr-2 text-red-600" aria-hidden="true"></i>Італія · Бельгія · Німеччина</p>
+      </article>
+    </section>
+
+    <section class="border-y border-white/5 bg-slate-900/35 px-4 py-16 sm:px-6 md:py-24 lg:px-8" aria-labelledby="discover-title">
+      <article class="mx-auto max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber-500">Explore the experience</p>
+        <h2 id="discover-title" class="mt-3 font-[Space_Grotesk] text-3xl font-bold text-white sm:text-4xl">Ваш трек-досвід — у деталях</h2>
+        <ul class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <li>
+            <article class="flex h-full flex-col rounded-2xl border border-white/10 bg-slate-950 p-6">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600/10 text-red-600" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+              <h3 class="mt-5 text-xl font-bold text-white">Лабораторія телеметрії</h3>
+              <p class="mt-2 flex-1 text-sm leading-6 text-slate-400">Відеоаналіз і наочний розбір еталонного кола.</p>
+              <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 font-semibold text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Відкрити лабораторію <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </article>
+          </li>
+          <li>
+            <article class="flex h-full flex-col rounded-2xl border border-white/10 bg-slate-950 p-6">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500" aria-hidden="true"><i class="fa-solid fa-route"></i></span>
+              <h3 class="mt-5 text-xl font-bold text-white">Траси та програми</h3>
+              <p class="mt-2 flex-1 text-sm leading-6 text-slate-400">Порівняйте три автодроми, їхні конфігурації та локації.</p>
+              <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 font-semibold text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="tracks.html">Переглянути траси <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </article>
+          </li>
+          <li>
+            <article class="flex h-full flex-col rounded-2xl border border-white/10 bg-slate-950 p-6">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600/10 text-red-600" aria-hidden="true"><i class="fa-solid fa-helmet-safety"></i></span>
+              <h3 class="mt-5 text-xl font-bold text-white">Інструктори</h3>
+              <p class="mt-2 flex-1 text-sm leading-6 text-slate-400">Знайдіть коуча або гоночного інженера для своєї сесії.</p>
+              <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 font-semibold text-slate-200 transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="instructors.html">Познайомитися з командою <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </article>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="latest-news" class="py-12 px-4 max-w-7xl mx-auto" aria-labelledby="latest-news-title">
+      <div class="mb-8 flex flex-wrap items-center gap-3">
+        <h2 id="latest-news-title" class="font-[Space_Grotesk] text-3xl font-bold text-white sm:text-4xl">Останні новини</h2>
+        <span class="rounded-full bg-amber-500 px-2.5 py-1 text-xs font-semibold text-white">Свіже</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+          <div class="aspect-video overflow-hidden relative rounded-t-xl">
+            <img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/dppi_00126022_2718.jpg?itok=ejOuMVY5" alt="Кімі Антонеллі чемпіон F1" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">Формула-1</span>
+          </div>
+          <div class="flex h-full flex-col p-5">
+            <p class="my-2 text-xs text-slate-400"><time datetime="2026-11-02">02 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="mb-2 text-xl font-bold text-white line-clamp-2">Кімі Антонеллі став наймолодшим чемпіоном Формули-1</h3>
+            <p class="mb-4 line-clamp-3 text-sm text-slate-300">Пілот Mercedes фінішував третім у Гран-прі Мехіко й достроково здобув свій перший титул чемпіона світу у віці 20 років.</p>
+            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Читати повністю →</a>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+          <div class="aspect-video overflow-hidden relative rounded-t-xl">
+            <img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/dppi_00126022_1681.jpg?itok=BN5--7xy" alt="Льюїс Гамільтон в Ferrari" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">Формула-1</span>
+          </div>
+          <div class="flex h-full flex-col p-5">
+            <p class="my-2 text-xs text-slate-400"><time datetime="2026-11-01">01 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="mb-2 text-xl font-bold text-white line-clamp-2">Гамільтон здобув перший поул за Ferrari</h3>
+            <p class="mb-4 line-clamp-3 text-sm text-slate-300">На кваліфікації Гран-прі Мехіко Гамільтон випередив Джорджа Расселла лише на 0,009 секунди, встановивши найкращий час — 1:16.514.</p>
+            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Читати повністю →</a>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+          <div class="aspect-video overflow-hidden relative rounded-t-xl">
+            <img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/dppi_02223011_1291.jpg?itok=H3YxdEJA" alt="Фінал WEC в Монці" loading="lazy">
+            <span class="bg-amber-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full absolute top-3 left-3">WEC</span>
+          </div>
+          <div class="flex h-full flex-col p-5">
+            <p class="my-2 text-xs text-slate-400"><time datetime="2026-11-03">03 листопада 2026</time> · Редакція FIA</p>
+            <h3 class="mb-2 text-xl font-bold text-white line-clamp-2">Титули WEC вирішаться у фіналі сезону в Монці</h3>
+            <p class="mb-4 line-clamp-3 text-sm text-slate-300">У фіналі на Autodromo Nazionale Monza визначаться володарі кількох титулів. У класі Hypercar екіпаж №8 Toyota має перевагу у 17 очок над напарниками.</p>
+            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Читати повністю →</a>
+          </div>
+        </article>
+      </div>
+      <div class="mt-8 text-center">
+        <a class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-6 font-semibold text-white shadow-md transition-all hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="news.html">Переглянути всі новини <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <section id="booking" class="scroll-mt-24 px-4 py-16 sm:px-6 md:py-24 lg:px-8" aria-labelledby="booking-title">
+      <article class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <section class="lg:pt-8" aria-labelledby="booking-title">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">Reserve your track day</p>
+          <h2 id="booking-title" class="mt-3 font-[Space_Grotesk] text-3xl font-bold text-white sm:text-4xl">Забронюйте свій заїзд</h2>
+          <p class="mt-4 leading-7 text-slate-400">Оберіть трасу, дату та супровід. Команда підтвердить доступність і зв’яжеться з вами для узгодження деталей.</p>
+          <ul class="mt-8 space-y-4 text-sm text-slate-300">
+            <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check mt-1 text-amber-500" aria-hidden="true"></i><span>Персональна консультація перед виїздом на трек.</span></li>
+            <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check mt-1 text-amber-500" aria-hidden="true"></i><span>Опційний розбір даних телеметрії після сесії.</span></li>
+            <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check mt-1 text-amber-500" aria-hidden="true"></i><span>Вибір інструктора відповідно до вашого досвіду.</span></li>
+          </ul>
+        </section>
+        <section class="rounded-2xl border border-white/10 bg-slate-900/80 p-5 shadow-2xl sm:p-8" aria-label="Форма бронювання трек-заїзду">
+          <form id="booking-form" class="space-y-5" aria-describedby="booking-note">
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-200" for="booking-name">Ім’я</label>
+              <input class="min-h-12 w-full rounded-lg border border-white/15 bg-slate-950 px-4 text-white placeholder:text-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" id="booking-name" name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" required>
+            </div>
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-200" for="booking-email">Електронна пошта</label>
+              <input class="min-h-12 w-full rounded-lg border border-white/15 bg-slate-950 px-4 text-white placeholder:text-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" id="booking-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-200" for="booking-track">Траса</label>
+                <select class="min-h-12 w-full rounded-lg border border-white/15 bg-slate-950 px-4 text-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" id="booking-track" name="track" required>
+                  <option value="" disabled selected>Оберіть автодром</option>
+                  <option value="monza">Monza Circuit</option>
+                  <option value="spa">Spa-Francorchamps</option>
+                  <option value="nurburgring">Nürburgring Nordschleife</option>
+                </select>
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-200" for="booking-date">Бажана дата</label>
+                <input class="min-h-12 w-full rounded-lg border border-white/15 bg-slate-950 px-4 text-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" id="booking-date" name="date" type="date" required>
+              </div>
+            </div>
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-200" for="booking-coach">Асистент / коуч</label>
+              <select class="w-full bg-slate-900 border border-slate-700 text-white text-sm rounded-xl p-3 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" id="booking-coach" name="coach">
+                <option class="bg-slate-900 text-slate-200" value="solo">Solo — самостійний заїзд</option>
+                <option class="bg-slate-900 text-slate-200" value="marco">Marko Trevisan — персональний коуч</option>
+                <option class="bg-slate-900 text-slate-200" value="matteo">Matteo Rossi — гоночний інженер</option>
+                <option class="bg-slate-900 text-slate-200" value="luca">Luca Benetti — інструктор із пілотування</option>
+              </select>
+            </div>
+            <label class="flex items-start gap-3 text-sm leading-6 text-slate-400">
+              <input class="mt-1 h-4 w-4 shrink-0 accent-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" type="checkbox" name="consent" required>
+              <span>Погоджуюся на обробку персональних даних для відповіді на запит.</span>
+            </label>
+            <button class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-5 font-semibold text-white shadow-lg shadow-red-600/30 transition-all duration-300 ease-in-out hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/30 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="submit">Надіслати запит на бронювання <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            <p id="booking-note" class="text-xs leading-5 text-slate-400">Демонстраційна форма: серверне бронювання ще не підключене. Після надсилання з’явиться підтвердження тестового запиту.</p>
+            <p id="booking-feedback" class="text-sm text-amber-500" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-white px-4 py-10 dark:bg-slate-950 sm:px-6 lg:px-8">
+    <section class="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4" aria-label="Інформація про компанію">
+      <article>
+        <a class="inline-flex min-h-11 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+          <img class="h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+        </a>
+        <p class="mt-3 max-w-xs text-sm leading-6 text-slate-400">Трековий досвід і точна телеметрія для пілотів, які прагнуть більшого.</p>
+      </article>
+      <nav aria-label="Розділи сайту">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Розділи</h2>
+        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="index.html">Головна</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="tracks.html">Траси та Програми</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="telemetry.html">Телеметрія</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li>
+          <li><a class="inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="news.html">Новини</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Соціальні мережі">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Соціальні мережі</h2>
+        <ul class="mt-3 flex gap-3">
+          <li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="https://www.instagram.com/" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="https://www.youtube.com/" aria-label="YouTube" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+        </ul>
+      </nav>
+      <address class="text-sm not-italic text-slate-400">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Контакти</h2>
+        <a class="mt-3 inline-flex min-h-11 items-center hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-500 duration-300" href="mailto:info@example.com">info@example.com</a>
+      </address>
+    </section>
+    <section class="mx-auto mt-8 max-w-7xl border-t border-white/10 pt-5" aria-label="Правова інформація та стан систем">
+      <p class="text-xs leading-5 text-slate-500">© 2026 Ferrari Track Experience &amp; Telemetry Lab. Незалежна демонстраційна концепція, не пов’язана з Ferrari S.p.A.</p>
+      <p class="mt-4 inline-flex items-center gap-2 text-xs font-medium text-slate-300"><span class="relative flex h-2.5 w-2.5" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span></span>System Status: Operational</p>
+    </section>
+  </footer>
+
+  <script>
+    const bookingForm = document.getElementById("booking-form");
+    const bookingFeedback = document.getElementById("booking-feedback");
+    const bookingDate = document.getElementById("booking-date");
+    const trackSelect = document.getElementById("booking-track");
+    const coachSelect = document.getElementById("booking-coach");
+    const requestedTrack = new URLSearchParams(window.location.search).get("track");
+    const requestedCoach = new URLSearchParams(window.location.search).get("instructor");
+
+    bookingDate.min = new Date().toLocaleDateString("en-CA");
+    if (["monza", "spa", "nurburgring"].includes(requestedTrack)) {
+      trackSelect.value = requestedTrack;
+    }
+    if (["marco", "matteo", "luca"].includes(requestedCoach)) {
+      coachSelect.value = requestedCoach;
+    }
+
+    bookingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      bookingFeedback.textContent = "Дякуємо! Запит сформовано в демо-режимі — для реального бронювання потрібне підключення серверної обробки.";
+      bookingForm.reset();
+      if (["monza", "spa", "nurburgring"].includes(requestedTrack)) {
+        trackSelect.value = requestedTrack;
+      }
+      if (["marco", "matteo", "luca"].includes(requestedCoach)) {
+        coachSelect.value = requestedCoach;
+      }
+    });
+  </script>
+</body>
+</html>

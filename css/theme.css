@@ -1,0 +1,133 @@
+:root {
+  color-scheme: light;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border-color: #e2e8f0;
+  --accent-color: #d97706;
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg-main: #020617;
+  --bg-card: #0f172a;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
+  --accent-color: #f59e0b;
+}
+
+#home {
+  background-image: url("../assets/images/Hero_bg_white.jpg");
+}
+
+html.dark #home {
+  background-image: url("../assets/images/hero-bg.png");
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+body > header,
+body > footer {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+html:not(.dark) .bg-slate-950 {
+  background-color: var(--bg-main) !important;
+}
+
+html:not(.dark) .bg-slate-900,
+html:not(.dark) .bg-slate-800 {
+  background-color: var(--bg-card) !important;
+}
+
+html:not(.dark) .bg-slate-900\/35,
+html:not(.dark) .bg-slate-900\/80 {
+  background-color: var(--bg-card) !important;
+}
+
+html:not(.dark) .bg-white\/5 {
+  background-color: rgb(15 23 42 / 5%) !important;
+}
+
+html:not(.dark) .text-white {
+  color: var(--text-main) !important;
+}
+
+html:not(.dark) [class*="bg-red-"].text-white,
+html:not(.dark) [class*="bg-amber-"].text-white,
+html:not(.dark) [class*="bg-emerald-"].text-white {
+  color: #ffffff !important;
+}
+
+html:not(.dark) .text-slate-100,
+html:not(.dark) .text-slate-200,
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-slate-400,
+html:not(.dark) .text-slate-500,
+html:not(.dark) .placeholder-slate-400::placeholder {
+  color: var(--text-muted) !important;
+}
+
+html:not(.dark) .instructor-card .text-slate-600 {
+  color: #475569 !important;
+}
+
+html:not(.dark) .instructor-card .text-slate-700 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .instructor-card .text-slate-800 {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .instructor-card .text-slate-900 {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .instructor-card .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .instructor-card .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .instructor-card .text-slate-300 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .text-amber-400,
+html:not(.dark) .text-amber-500,
+html:not(.dark) .hover\:text-amber-300:hover {
+  color: var(--accent-color) !important;
+}
+
+html:not(.dark) .border-white\/5,
+html:not(.dark) .border-white\/10,
+html:not(.dark) .border-white\/15,
+html:not(.dark) .border-white\/\[0\.08\],
+html:not(.dark) .border-slate-800,
+html:not(.dark) .border-slate-700 {
+  border-color: var(--border-color) !important;
+}
+
+html:not(.dark) .hover\:bg-white\/5:hover {
+  background-color: rgb(15 23 42 / 5%) !important;
+}
+
+html:not(.dark) .hover\:text-white:hover {
+  color: var(--text-main) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}

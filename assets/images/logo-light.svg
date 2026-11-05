@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="320" height="60" fill="none">
+  <g transform="translate(10, 10)">
+    <path d="M4 36C18 36 22 8 38 8C48 8 52 24 58 36" stroke="#D40000" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M10 40C20 40 24 14 38 14" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="2 2"/>
+    <circle cx="38" cy="8" r="4" fill="#FFD700"/>
+    <circle cx="38" cy="8" r="7" stroke="#FFD700" stroke-width="1" opacity="0.5"/>
+  </g>
+  <text x="80" y="32" fill="#0F172A" font-family="'Red Hat Display', 'Inter', sans-serif" font-weight="900" font-size="20" letter-spacing="2">SCUDERIA</text>
+  <text x="80" y="48" fill="#0F172A" font-family="'Space Grotesk', sans-serif" font-weight="500" font-size="12" letter-spacing="4">TELEMETRY LAB</text>
+</svg>

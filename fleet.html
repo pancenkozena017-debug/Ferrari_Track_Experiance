@@ -2,17 +2,33 @@
 <html lang="uk" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ознайомтеся з автопарком Ferrari Track Experience та оберіть суперкар для свого трекового дня.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оренда Ferrari для трек-дня: порівняйте спортивні авто, характеристики та ціни, знайдіть інструктора й замовте телеметрію для заїзду на трасах Європи.">
   <meta name="theme-color" content="#0B0F17">
+  <link rel="canonical" href="https://ferrari-track-experience.vercel.app/fleet.html">
+  <meta property="og:title" content="Автопарк Ferrari — Авто для трек-дня">
+  <meta property="og:description" content="Оренда Ferrari для трек-дня: порівняйте спортивні авто, характеристики та ціни, знайдіть інструктора й замовте телеметрію для заїзду на трасах Європи.">
+  <meta property="og:image" content="https://ferrari-track-experience.vercel.app/assets/images/hero_499p.webp">
+  <meta property="og:url" content="https://ferrari-track-experience.vercel.app/fleet.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <script>
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    let savedTheme = null;
+    try {
+      savedTheme = window.localStorage.getItem('theme');
+    } catch (error) {
+      console.error("Не вдалося прочитати збережену тему.", error);
+    }
+    if (savedTheme === 'dark' || (savedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light-theme');
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light-theme');
     }
   </script>
-  <title>Автопарк Ferrari | Ferrari Track Experience</title>
+  <title>Автопарк Ferrari — Авто для трек-дня</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +37,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { darkMode: "class" };</script>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-  <script src="js/theme-toggle.js" defer></script>
 </head>
 <body class="overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
   <header class="sticky top-0 z-50 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl">
@@ -41,7 +56,7 @@
         <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
         <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
       </button>
-      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="index.html#booking">Start Free Trial</a>
+      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="index.html#booking">Забронювати трек-день</a>
       <details class="group relative xl:hidden">
         <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації">
           <i class="fa-solid fa-bars group-open:hidden" aria-hidden="true"></i><i class="fa-solid fa-xmark hidden group-open:inline" aria-hidden="true"></i>
@@ -53,7 +68,7 @@
           <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="telemetry.html">Телеметрія</a></li>
           <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="instructors.html">Інструктори</a></li>
           <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="news.html">Новини</a></li>
-          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="index.html#booking">Start Free Trial</a></li>
+          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="index.html#booking">Забронювати трек-день</a></li>
         </ul>
       </details>
     </nav>
@@ -115,108 +130,6 @@
     <p>© 2026 Ferrari Track Experience &amp; Telemetry Lab. Незалежна демонстраційна концепція, не пов’язана з Ferrari S.p.A.</p>
   </footer>
 
-  <script>
-    const carData = {
-      "testa-rossa": {
-        name: "Ferrari 250 Testa Rossa",
-        model: "./assets/models/ferrari-250-testa-rossa/ferrari_250-v1.glb",
-        description: "Легендарний гоночний Ferrari з атмосферним V12 і класичним характером витривалих перегонів.",
-        engine: "3.0L V12",
-        power: "300 к.с.",
-        acceleration: "6,0 с",
-        speed: "270 км/год",
-        price: "$1,200"
-      },
-      "488-pista": {
-        name: "Ferrari 488 Pista",
-        model: "./assets/models/ferrari-488-pista/ferrari-488-v1.glb",
-        description: "Легка, орієнтована на трек версія 488 із потужним V8 Twin-Turbo та гострою реакцією на кермо.",
-        engine: "3.9L V8 Twin-Turbo",
-        power: "720 к.с.",
-        acceleration: "2,85 с",
-        speed: "340 км/год",
-        price: "$700"
-      },
-      laferrari: {
-        name: "Ferrari LaFerrari",
-        model: "./assets/models/ferrari-laferrari/ferrari_laferrari-v1.glb",
-        description: "Гібридний суперкар Ferrari, що поєднує атмосферний V12 із системою HY-KERS.",
-        engine: "6.3L V12 Hybrid",
-        power: "963 к.с.",
-        acceleration: "2,6 с",
-        speed: "350 км/год",
-        price: "$1,100"
-      },
-      "499p": {
-        name: "Ferrari 499P",
-        model: "./assets/models/ferrari-fxx-k-2015/ferrari_499p-v2.glb",
-        description: "Гоночний прототип Ferrari для перегонів на витривалість із гібридною силовою установкою.",
-        engine: "3.0L V6 Twin-Turbo Hybrid",
-        power: "680 к.с.",
-        acceleration: "≈2,5 с",
-        speed: "≈340 км/год",
-        price: "$1,500"
-      }
-    };
-
-    const viewer = document.getElementById("car-viewer");
-    const panel = document.getElementById("car-panel");
-    const bookingLink = document.getElementById("car-booking-link");
-    const tabs = Array.from(document.querySelectorAll(".fleet-tab"));
-    const fields = {
-      name: document.getElementById("car-name"),
-      description: document.getElementById("car-description"),
-      engine: document.getElementById("car-engine"),
-      power: document.getElementById("car-power"),
-      acceleration: document.getElementById("car-acceleration"),
-      speed: document.getElementById("car-speed"),
-      price: document.getElementById("car-price")
-    };
-
-    function selectCar(tab) {
-      const car = carData[tab.dataset.car];
-      if (!car) return;
-
-      viewer.src = car.model;
-      viewer.alt = `Інтерактивна 3D-модель ${car.name}`;
-      bookingLink.href = `index.html?car=${encodeURIComponent(tab.dataset.car)}#booking`;
-      fields.name.textContent = car.name;
-      fields.description.textContent = car.description;
-      fields.engine.textContent = car.engine;
-      fields.power.textContent = car.power;
-      fields.acceleration.textContent = car.acceleration;
-      fields.speed.textContent = car.speed;
-      fields.price.textContent = car.price;
-      panel.setAttribute("aria-labelledby", tab.id);
-
-      tabs.forEach((item) => {
-        const selected = item === tab;
-        item.setAttribute("aria-selected", String(selected));
-        item.tabIndex = selected ? 0 : -1;
-        item.classList.toggle("border-red-600", selected);
-        item.classList.toggle("bg-red-600", selected);
-        item.classList.toggle("text-white", selected);
-        item.classList.toggle("border-slate-700", !selected);
-        item.classList.toggle("bg-slate-900", !selected);
-        item.classList.toggle("text-slate-300", !selected);
-      });
-    }
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => selectCar(tab));
-      tab.addEventListener("keydown", (event) => {
-        let nextIndex;
-        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
-        if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
-        if (event.key === "Home") nextIndex = 0;
-        if (event.key === "End") nextIndex = tabs.length - 1;
-        if (nextIndex !== undefined) {
-          event.preventDefault();
-          tabs[nextIndex].focus();
-          selectCar(tabs[nextIndex]);
-        }
-      });
-    });
-  </script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

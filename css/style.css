@@ -62,6 +62,37 @@ body {
   overflow-x: hidden;
 }
 
+html.light-theme,
+body.light-theme,
+[data-theme="light"] {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+  --color-background: #f9fafb;
+  --color-header-background: rgb(255 255 255 / 94%);
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-text-main: #111827;
+  --color-text-muted: #4b5563;
+  --color-primary: #dc2626;
+  --color-primary-hover: #b91c1c;
+  --color-primary-text: #b91c1c;
+  --color-accent: #92400e;
+  --color-text-on-primary: #ffffff;
+}
+
+.light-theme header .site-logo,
+.light-theme .site-logo,
+[data-theme="light"] header .site-logo {
+  color: #111827 !important;
+}
+
+.light-theme .site-logo span,
+[data-theme="light"] .site-logo span {
+  color: #dc2626 !important;
+}
+
 /* Media Elements Reset */
 img,
 picture,
@@ -82,7 +113,6 @@ ol {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
 /* Form Controls Reset */
@@ -112,21 +142,22 @@ button {
 
 :root {
   /* Colors */
-  --color-primary: #D40000;
-  --color-primary-hover: #FF1E1E;
-  --color-primary-border-hover: rgba(212, 0, 0, 0.4);
-  --color-background: #121216;
-  --color-header-background: rgb(18 18 22 / 82%);
-  --color-surface: #1C1C22;
-  --color-border: #2A2A34;
-  --color-text-main: #FFFFFF;
-  --color-text-muted: #8E8E93;
-  --color-accent: #FFD700;
-  --color-overlay-strong: rgb(18 18 22 / 94%);
-  --color-overlay-medium: rgb(18 18 22 / 74%);
-  --color-overlay-light: rgb(18 18 22 / 38%);
-  --color-overlay-soft: rgb(18 18 22 / 34%);
-  --color-text-on-primary: var(--color-text-main);
+  --color-primary: #DC2626;
+  --color-primary-hover: #B91C1C;
+  --color-primary-text: #F87171;
+  --color-primary-border-hover: rgba(220, 38, 38, 0.4);
+  --color-background: #0F172A;
+  --color-header-background: rgb(15 23 42 / 82%);
+  --color-surface: #111827;
+  --color-border: #374151;
+  --color-text-main: #F9FAFB;
+  --color-text-muted: #D1D5DB;
+  --color-accent: #FCD34D;
+  --color-overlay-strong: rgb(15 23 42 / 94%);
+  --color-overlay-medium: rgb(15 23 42 / 74%);
+  --color-overlay-light: rgb(15 23 42 / 38%);
+  --color-overlay-soft: rgb(15 23 42 / 34%);
+  --color-text-on-primary: #FFFFFF;
 
   /* Typography */
   --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
@@ -284,12 +315,11 @@ code {
 }
 
 .menu-item a:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-primary-text);
 }
 
 .header-login {
   color: var(--color-text-muted);
-  transition: color var(--transition-base);
 }
 
 .header-login:hover,
@@ -319,12 +349,11 @@ code {
   border: var(--border-width) solid var(--color-primary);
   border-radius: var(--radius-sm);
   text-align: center;
-  transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-text-main);
+  color: var(--color-text-on-primary);
 }
 
 .btn-primary:hover {
@@ -349,14 +378,53 @@ code {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
   min-height: min(44rem, 86svh);
+  --hero-background-image: url('../assets/images/hero-bg.webp');
   background-color: var(--color-background);
   background-image:
     linear-gradient(90deg, var(--color-background) 0%, var(--color-overlay-strong) 30%, var(--color-overlay-soft) 64%, transparent 100%),
     linear-gradient(0deg, var(--color-background) 0%, transparent 30%),
-    url('../assets/images/hero-bg.png');
+    var(--hero-background-image);
   background-position: center, center, center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.light-theme .hero-section,
+[data-theme="light"] .hero-section {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0.15) 100%),
+    url('../assets/images/Hero_bg_white.webp') center / cover no-repeat !important;
+  color: #111827 !important;
+}
+
+.light-theme .hero-section h1,
+.light-theme .hero-section h2,
+.light-theme .hero-section h3,
+.light-theme .hero-section p,
+[data-theme="light"] .hero-section h1,
+[data-theme="light"] .hero-section h2,
+[data-theme="light"] .hero-section h3,
+[data-theme="light"] .hero-section p {
+  color: #111827 !important;
+}
+
+.light-theme .hero-section .hero-description,
+[data-theme="light"] .hero-section .hero-description {
+  color: #374151 !important;
+}
+
+.light-theme #news,
+.light-theme .news-section,
+[data-theme="light"] #news,
+[data-theme="light"] .news-section {
+  background-color: #f9fafb !important;
+}
+
+.light-theme #news h2,
+.light-theme .news-section h2,
+[data-theme="light"] #news h2,
+[data-theme="light"] .news-section h2 {
+  color: #111827 !important;
 }
 
 .hero-container {
@@ -377,7 +445,7 @@ code {
 }
 
 .hero-title .text-accent {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .hero-description {
@@ -394,7 +462,7 @@ code {
   min-width: 16rem;
   min-height: 3rem;
   border-radius: var(--radius-md);
-  transition: box-shadow var(--transition-base), background-color var(--transition-base), transform var(--transition-base);
+  transition: transform var(--transition-base);
 }
 
 .hero-buttons .btn-primary:hover,
@@ -422,7 +490,7 @@ code {
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base);
 }
 
 .step-card:hover {
@@ -462,7 +530,7 @@ code {
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
-  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-base);
 }
 
 .card:hover {
@@ -568,7 +636,6 @@ code {
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
-  transition: border-color var(--transition-base), background-color var(--transition-base);
 }
 
 .schedule-item:hover {
@@ -607,7 +674,6 @@ code {
   color: var(--color-text-main);
   font-size: var(--font-size-compact);
   cursor: pointer;
-  transition: all var(--transition-fast);
 }
 
 .schedule-section .btn-secondary:hover {
@@ -650,7 +716,6 @@ code {
 
 .footer-links a {
   color: var(--color-text-muted);
-  transition: color var(--transition-fast);
 }
 
 .footer-links a:hover,
@@ -704,7 +769,6 @@ code {
 
 .footer-secondary-links a {
   color: var(--color-text-muted);
-  transition: color var(--transition-fast);
 }
 
 .footer-secondary-links a:hover,
@@ -771,7 +835,7 @@ code {
     background-image:
       linear-gradient(90deg, var(--color-overlay-strong) 0%, var(--color-overlay-medium) 60%, var(--color-overlay-light) 100%),
       linear-gradient(0deg, var(--color-background) 0%, transparent 40%),
-      url('../assets/images/hero-bg.png');
+      var(--hero-background-image);
     background-position: center, center, 62% center;
   }
 

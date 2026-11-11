@@ -5,7 +5,17 @@
   --text-main: #0f172a;
   --text-muted: #475569;
   --border-color: #e2e8f0;
-  --accent-color: #d97706;
+  --accent-color: #92400e;
+}
+
+html.light-theme {
+  color-scheme: light;
+  --bg-main: #f9fafb;
+  --bg-card: #ffffff;
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --border-color: #e5e7eb;
+  --accent-color: #92400e;
 }
 
 html.dark {
@@ -13,17 +23,9 @@ html.dark {
   --bg-main: #020617;
   --bg-card: #0f172a;
   --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
+  --text-muted: #d1d5db;
   --border-color: #1e293b;
   --accent-color: #f59e0b;
-}
-
-#home {
-  background-image: url("../assets/images/Hero_bg_white.jpg");
-}
-
-html.dark #home {
-  background-image: url("../assets/images/hero-bg.png");
 }
 
 body {
@@ -32,10 +34,61 @@ body {
   transition: background-color 200ms ease, color 200ms ease;
 }
 
+html.light-theme,
+body.light-theme,
+[data-theme="light"] {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+}
+
+html.light-theme body {
+  background-color: #f9fafb !important;
+}
+
+.site-logo-light {
+  display: block !important;
+}
+
+.site-logo-dark {
+  display: none !important;
+}
+
+html.dark .site-logo-light {
+  display: none !important;
+}
+
+html.dark .site-logo-dark {
+  display: block !important;
+}
+
+.light-theme header .site-logo,
+.light-theme .site-logo,
+[data-theme="light"] header .site-logo {
+  color: #111827 !important;
+}
+
+.light-theme .site-logo span,
+[data-theme="light"] .site-logo span {
+  color: #dc2626 !important;
+}
+
 body > header,
 body > footer {
   background-color: var(--bg-card);
   border-color: var(--border-color);
+}
+
+html.light-theme body > header,
+html.light-theme body > footer {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+  color: #111827;
+}
+
+html.light-theme header nav > ul a:not([aria-current="page"]):hover {
+  color: #b91c1c !important;
 }
 
 html:not(.dark) .bg-slate-950 {
@@ -103,10 +156,32 @@ html:not(.dark) .instructor-card .text-slate-300 {
   color: #334155 !important;
 }
 
+html:not(.dark) .text-amber-300,
 html:not(.dark) .text-amber-400,
 html:not(.dark) .text-amber-500,
 html:not(.dark) .hover\:text-amber-300:hover {
   color: var(--accent-color) !important;
+}
+
+html.dark .text-slate-400,
+html.dark .text-slate-500 {
+  color: #d1d5db !important;
+}
+
+html.dark input::placeholder {
+  color: #d1d5db !important;
+}
+
+html:not(.dark) input::placeholder {
+  color: #6b7280 !important;
+}
+
+html.dark .text-red-600 {
+  color: #f87171 !important;
+}
+
+html:not(.dark) .text-red-500 {
+  color: #b91c1c !important;
 }
 
 html:not(.dark) .border-white\/5,
@@ -124,6 +199,99 @@ html:not(.dark) .hover\:bg-white\/5:hover {
 
 html:not(.dark) .hover\:text-white:hover {
   color: var(--text-main) !important;
+}
+
+html.light-theme #booking {
+  background-color: #f3f4f6;
+}
+
+html.light-theme #booking h2,
+html.light-theme #booking h3,
+html.light-theme #booking label {
+  color: #111827;
+}
+
+html.light-theme #booking p:not([role="status"]),
+html.light-theme #booking li span {
+  color: #4b5563;
+}
+
+html.light-theme #booking .fa-circle-check {
+  color: #b91c1c !important;
+}
+
+html.light-theme #booking input,
+html.light-theme #booking select {
+  background-color: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+html.light-theme #booking input::placeholder {
+  color: #6b7280 !important;
+}
+
+html.light-theme #home,
+[data-theme="light"] #home {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0.15) 100%),
+    url("../assets/images/Hero_bg_white.webp") center / cover no-repeat !important;
+}
+
+html.light-theme #home > img,
+[data-theme="light"] #home > img,
+html.light-theme #home > span,
+[data-theme="light"] #home > span {
+  display: none;
+}
+
+html.light-theme #home,
+[data-theme="light"] #home {
+  color: #111827 !important;
+}
+
+html.light-theme #home h1,
+[data-theme="light"] #home h1 {
+  background: none !important;
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827;
+}
+
+html.light-theme #home article > p:not(:first-child),
+[data-theme="light"] #home article > p:not(:first-child) {
+  color: #374151 !important;
+}
+
+html.light-theme #latest-news,
+[data-theme="light"] #latest-news {
+  width: 100%;
+  background-color: #f9fafb !important;
+}
+
+html.light-theme #latest-news h2,
+[data-theme="light"] #latest-news h2 {
+  color: #111827 !important;
+}
+
+html.light-theme #latest-news article,
+[data-theme="light"] #latest-news article {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 4px 6px rgb(17 24 39 / 8%);
+}
+
+html.light-theme #latest-news article p,
+[data-theme="light"] #latest-news article p {
+  color: #4b5563 !important;
+}
+
+html.light-theme #latest-news article h3,
+[data-theme="light"] #latest-news article h3 {
+  color: #111827 !important;
+}
+
+html.light-theme #latest-news article a,
+[data-theme="light"] #latest-news article a {
+  color: #92400e !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

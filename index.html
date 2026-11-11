@@ -2,51 +2,50 @@
 <html lang="uk" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Забронюйте Ferrari Track Experience на легендарних трасах Європи та отримайте персональний аналіз телеметрії.">
-  <meta name="theme-color" content="#0B0F17">
-  <script>
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  </script>
-  <title>Ferrari Track Experience &amp; Telemetry Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ferrari трек-день у Європі: оренда спортивних авто, професійний інструктор і аналіз телеметрії на легендарних трасах. Забронюйте свій заїзд вже сьогодні!">
+  <meta name="theme-color" content="#0F172A">
+  <link rel="canonical" href="https://ferrari-track-experience.vercel.app/">
+  <meta property="og:title" content="Ferrari Track Experience — Трек-день і телеметрія">
+  <meta property="og:description" content="Ferrari трек-день у Європі: оренда спортивних авто, професійний інструктор і аналіз телеметрії на легендарних трасах. Забронюйте свій заїзд вже сьогодні!">
+  <meta property="og:image" content="https://ferrari-track-experience.vercel.app/assets/images/hero_499p.webp">
+  <meta property="og:url" content="https://ferrari-track-experience.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preload" as="image" href="assets/images/hero-bg.webp" fetchpriority="high">
+  <title>Ferrari Track Experience — Трек-день і телеметрія</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="css/theme.css">
   <style>
     :root {
-      --color-brand: #D40000;
-      --color-brand-hover: #FF1E1E;
+      --color-brand: #DC2626;
+      --color-brand-hover: #B91C1C;
+    }
+
+    :where(a, button, input, select, textarea, summary, [tabindex="0"]):focus-visible {
+      outline: 2px solid #dc2626;
+      outline-offset: 2px;
     }
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            brand: "var(--color-brand)"
-          }
-        }
-      }
-    };
-  </script>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-  <script src="js/theme-toggle.js" defer></script>
   <link rel="stylesheet" href="css/vendor/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/vendor/fancybox.css">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/vendor/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/vendor/fancybox.css">
+  </noscript>
 </head>
 <body class="overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
   <header class="sticky top-0 z-50 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl">
     <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Головна навігація">
-      <a class="flex min-h-11 shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
-        <img class="h-10 w-auto dark:hidden" src="assets/images/logo-light.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy"><img class="hidden h-10 w-auto dark:block" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+      <a class="site-logo flex min-h-11 shrink-0 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
+        <img class="site-logo-light h-10 w-auto" src="assets/images/logo-light.svg" alt="Scuderia Telemetry Lab" width="160" height="40" decoding="async"><img class="site-logo-dark hidden h-10 w-auto" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" decoding="async">
       </a>
       <ul class="hidden items-center gap-5 xl:flex">
         <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-red-600 font-bold transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-current="page">Головна</a></li>
@@ -56,11 +55,11 @@
         <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="instructors.html">Інструктори</a></li>
         <li><a class="inline-flex min-h-11 items-center rounded-sm text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="news.html">Новини</a></li>
       </ul>
-      <button id="theme-toggle" type="button" aria-label="Змінити тему" class="p-2 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-800/20 dark:hover:bg-slate-800 transition-colors">
+      <button id="theme-toggle" type="button" aria-label="Змінити тему" class="p-2 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-800/20 dark:hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2">
         <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
         <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
       </button>
-      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="#booking">Start Free Trial</a>
+      <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="#booking">Забронювати трек-день</a>
       <details class="group relative xl:hidden">
         <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації">
           <i class="fa-solid fa-bars group-open:hidden" aria-hidden="true"></i><i class="fa-solid fa-xmark hidden group-open:inline" aria-hidden="true"></i>
@@ -72,14 +71,15 @@
           <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="telemetry.html">Телеметрія</a></li>
           <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="instructors.html">Інструктори</a></li>
           <li><a class="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-200 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 duration-300" href="news.html">Новини</a></li>
-          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="#booking">Start Free Trial</a></li>
+          <li><a class="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-red-600 px-4 text-sm font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="#booking">Забронювати трек-день</a></li>
         </ul>
       </details>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="relative isolate flex min-h-[38rem] items-center overflow-hidden bg-slate-950 bg-[url('assets/images/hero-bg.png')] bg-cover bg-[center_65%] px-4 py-16 sm:px-6 md:min-h-[42rem] md:bg-center md:py-24 lg:px-8" aria-labelledby="hero-title">
+    <section id="home" class="relative isolate flex min-h-[38rem] items-center overflow-hidden bg-slate-950 px-4 py-16 sm:px-6 md:min-h-[42rem] md:py-24 lg:px-8" aria-labelledby="hero-title">
+      <img class="absolute inset-0 -z-20 h-full w-full object-cover object-[center_65%] md:object-center" src="assets/images/hero-bg.webp" alt="" width="1376" height="768" fetchpriority="high" decoding="async">
       <span class="absolute inset-0 -z-10 bg-gradient-to-r from-white/95 via-white/75 to-white/10 dark:from-[#0B0F17] dark:via-[#0B0F17]/90 dark:to-[#0B0F17]/35" aria-hidden="true"></span>
       <span class="absolute inset-0 -z-10 bg-gradient-to-t from-white/70 via-white/15 to-white/40 dark:from-[#0B0F17]/90 dark:via-[#0B0F17]/30 dark:to-[#0B0F17]/60 md:from-white/60 md:via-transparent md:to-white/20 dark:md:from-[#0B0F17]/80 dark:md:via-transparent dark:md:to-[#0B0F17]/20" aria-hidden="true"></span>
       <article class="mx-auto w-full max-w-7xl">
@@ -129,7 +129,8 @@
       </article>
     </section>
 
-    <section id="latest-news" class="py-12 px-4 max-w-7xl mx-auto" aria-labelledby="latest-news-title">
+    <section id="latest-news" class="py-12 px-4" aria-labelledby="latest-news-title">
+      <div class="mx-auto max-w-7xl">
       <div class="mb-8 flex flex-wrap items-center gap-3">
         <h2 id="latest-news-title" class="font-[Space_Grotesk] text-3xl font-bold text-white sm:text-4xl">Останні новини</h2>
         <span class="rounded-full bg-amber-500 px-2.5 py-1 text-xs font-semibold text-white">Свіже</span>
@@ -144,7 +145,7 @@
             <p class="my-2 text-xs text-slate-400"><time datetime="2026-11-02">02 листопада 2026</time> · Редакція FIA</p>
             <h3 class="mb-2 text-xl font-bold text-white line-clamp-2">Кімі Антонеллі став наймолодшим чемпіоном Формули-1</h3>
             <p class="mb-4 line-clamp-3 text-sm text-slate-300">Пілот Mercedes фінішував третім у Гран-прі Мехіко й достроково здобув свій перший титул чемпіона світу у віці 20 років.</p>
-            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Читати повністю →</a>
+            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Новина: Кімі Антонеллі — чемпіон Формули-1 →</a>
           </div>
         </article>
         <article class="group overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
@@ -156,7 +157,7 @@
             <p class="my-2 text-xs text-slate-400"><time datetime="2026-11-01">01 листопада 2026</time> · Редакція FIA</p>
             <h3 class="mb-2 text-xl font-bold text-white line-clamp-2">Гамільтон здобув перший поул за Ferrari</h3>
             <p class="mb-4 line-clamp-3 text-sm text-slate-300">На кваліфікації Гран-прі Мехіко Гамільтон випередив Джорджа Расселла лише на 0,009 секунди, встановивши найкращий час — 1:16.514.</p>
-            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Читати повністю →</a>
+            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Новина: перший поул Гамільтона за Ferrari →</a>
           </div>
         </article>
         <article class="group overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
@@ -168,12 +169,13 @@
             <p class="my-2 text-xs text-slate-400"><time datetime="2026-11-03">03 листопада 2026</time> · Редакція FIA</p>
             <h3 class="mb-2 text-xl font-bold text-white line-clamp-2">Титули WEC вирішаться у фіналі сезону в Монці</h3>
             <p class="mb-4 line-clamp-3 text-sm text-slate-300">У фіналі на Autodromo Nazionale Monza визначаться володарі кількох титулів. У класі Hypercar екіпаж №8 Toyota має перевагу у 17 очок над напарниками.</p>
-            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Читати повністю →</a>
+            <a class="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-medium text-amber-400 hover:text-amber-300" href="news.html">Новина: фінал сезону WEC у Монці →</a>
           </div>
         </article>
       </div>
       <div class="mt-8 text-center">
         <a class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-6 font-semibold text-white shadow-md transition-all hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" href="news.html">Переглянути всі новини <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
       </div>
     </section>
 
@@ -186,31 +188,31 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-h-[34rem] overflow-y-auto overscroll-contain pr-2" tabindex="0" aria-label="Галерея фотографій — прокрутіть, щоб переглянути всі зображення">
           <a href="./assets/galery/Ferrari%20156.jpg" data-fancybox="ferrari-gallery" data-caption="Ferrari 156 — легенда гоночної історії">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Ferrari%20156.jpg" alt="Ferrari 156 на гоночній трасі" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Ferrari%20156.jpg" alt="Ferrari 156 на гоночній трасі" width="735" height="753" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/Ferrari%20wallpaper.jpg" data-fancybox="ferrari-gallery" data-caption="Ferrari — культовий дизайн і швидкість">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Ferrari%20wallpaper.jpg" alt="Автомобіль Ferrari" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Ferrari%20wallpaper.jpg" alt="Автомобіль Ferrari" width="736" height="1178" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/Max%20Verstappen%20%F0%9F%91%91.jpg" data-fancybox="ferrari-gallery" data-caption="Мить із світу автоспорту">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Max%20Verstappen%20%F0%9F%91%91.jpg" alt="Пілот під час гоночного вікенду" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Max%20Verstappen%20%F0%9F%91%91.jpg" alt="Пілот під час гоночного вікенду" width="736" height="967" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/Monza,%20Italy,%20September,%201964_%20John%20Surtees%20in%20the%20Ferrari%201512%20during%20practice_.jpg" data-fancybox="ferrari-gallery" data-caption="Монца, 1964 — Джон Сертіс за кермом Ferrari 1512">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Monza,%20Italy,%20September,%201964_%20John%20Surtees%20in%20the%20Ferrari%201512%20during%20practice_.jpg" alt="Джон Сертіс за кермом Ferrari 1512 під час практики в Монці" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Monza,%20Italy,%20September,%201964_%20John%20Surtees%20in%20the%20Ferrari%201512%20during%20practice_.jpg" alt="Джон Сертіс за кермом Ferrari 1512 під час практики в Монці" width="648" height="974" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/Op%20deze%20datum%20gaat%20de%20N%C3%BCrburgring%20weer%20open%20voor%20iedereen.jpg" data-fancybox="ferrari-gallery" data-caption="Нюрбургринг — легендарна траса для пілотів">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Op%20deze%20datum%20gaat%20de%20N%C3%BCrburgring%20weer%20open%20voor%20iedereen.jpg" alt="Траса Нюрбургринг" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/Op%20deze%20datum%20gaat%20de%20N%C3%BCrburgring%20weer%20open%20voor%20iedereen.jpg" alt="Траса Нюрбургринг" width="736" height="414" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%84%D0%B5%D1%81%D1%82%D0%B8%D0%B2%D0%B0%D0%BB%D1%8C%20UGOL%20DRIFT%20%26%20MEET%20%D0%B2%20%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8.jpg" data-fancybox="ferrari-gallery" data-caption="Автомобільний фестиваль UGOL DRIFT &amp; MEET">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%84%D0%B5%D1%81%D1%82%D0%B8%D0%B2%D0%B0%D0%BB%D1%8C%20UGOL%20DRIFT%20%26%20MEET%20%D0%B2%20%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8.jpg" alt="Автомобільний фестиваль і дрифт" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%84%D0%B5%D1%81%D1%82%D0%B8%D0%B2%D0%B0%D0%BB%D1%8C%20UGOL%20DRIFT%20%26%20MEET%20%D0%B2%20%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8.jpg" alt="Автомобільний фестиваль і дрифт" width="736" height="414" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg" data-fancybox="ferrari-gallery" data-caption="Гоночний автомобіль на трасі">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg" alt="Гоночний автомобіль" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg" alt="Гоночний автомобіль" width="720" height="1280" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(1).jpg" data-fancybox="ferrari-gallery" data-caption="Заїзд на гоночній трасі">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(1).jpg" alt="Гоночний заїзд на трасі" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(1).jpg" alt="Гоночний заїзд на трасі" width="735" height="920" loading="lazy" decoding="async">
           </a>
           <a href="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(2).jpg" data-fancybox="ferrari-gallery" data-caption="Автомобільний спорт — швидкість і майстерність">
-            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(2).jpg" alt="Автомобільний спорт на гоночній трасі" width="900" height="600" loading="lazy" decoding="async">
+            <img class="rounded-xl shadow-lg hover:scale-[1.03] transition duration-300 w-full h-64 object-cover cursor-zoom-in border border-slate-800" src="./assets/galery/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(2).jpg" alt="Автомобільний спорт на гоночній трасі" width="736" height="1097" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
@@ -232,7 +234,7 @@
                 </div>
                 <p class="my-5 flex-1 leading-7 text-slate-300">«488 GTB на Монці подарувала неймовірну точність у кожному повороті. Розбір телеметрії допоміг знайти час на гальмуванні й краще зрозуміти траєкторію.»</p>
                 <div class="flex items-center gap-4">
-                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80" alt="" width="48" height="48" loading="lazy">
+                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80&amp;fm=webp" alt="" width="48" height="48" loading="lazy" decoding="async">
                   <div><h3 class="font-semibold text-white">Олександр Мельник</h3><p class="text-sm text-slate-400">Ferrari 488 GTB</p></div>
                 </div>
               </div>
@@ -244,7 +246,7 @@
                 </div>
                 <p class="my-5 flex-1 leading-7 text-slate-300">«SF90 Stradale вразила миттєвим прискоренням, а інструктор допоміг безпечно розкрити її потенціал. Дані телеметрії показали, як ефективніше працювати з виходом із повороту.»</p>
                 <div class="flex items-center gap-4">
-                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80" alt="" width="48" height="48" loading="lazy">
+                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80&amp;fm=webp" alt="" width="48" height="48" loading="lazy" decoding="async">
                   <div><h3 class="font-semibold text-white">Марія Коваль</h3><p class="text-sm text-slate-400">Ferrari SF90 Stradale</p></div>
                 </div>
               </div>
@@ -256,7 +258,7 @@
                 </div>
                 <p class="my-5 flex-1 leading-7 text-slate-300">«За кермом F8 Tributo на Спа я вперше відчув справжню впевненість на швидких ділянках. Порівняння кіл у телеметрії чітко показало, де я можу бути плавнішим.»</p>
                 <div class="flex items-center gap-4">
-                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80" alt="" width="48" height="48" loading="lazy">
+                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80&amp;fm=webp" alt="" width="48" height="48" loading="lazy" decoding="async">
                   <div><h3 class="font-semibold text-white">Андрій Шевченко</h3><p class="text-sm text-slate-400">Ferrari F8 Tributo</p></div>
                 </div>
               </div>
@@ -268,7 +270,7 @@
                 </div>
                 <p class="my-5 flex-1 leading-7 text-slate-300">«458 Italia звучить фантастично, а на Нюрбургринзі кожен сектор став новим викликом. Команда пояснила графіки гальмування просто й допомогла одразу застосувати висновки на трасі.»</p>
                 <div class="flex items-center gap-4">
-                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80" alt="" width="48" height="48" loading="lazy">
+                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80&amp;fm=webp" alt="" width="48" height="48" loading="lazy" decoding="async">
                   <div><h3 class="font-semibold text-white">Ірина Бондар</h3><p class="text-sm text-slate-400">Ferrari 458 Italia</p></div>
                 </div>
               </div>
@@ -280,32 +282,32 @@
                 </div>
                 <p class="my-5 flex-1 leading-7 text-slate-300">«Потужність 812 Superfast вимагає точності, і персональні підказки інструктора були безцінними. Після сесії телеметрія допомогла побачити прогрес від кола до кола.»</p>
                 <div class="flex items-center gap-4">
-                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80" alt="" width="48" height="48" loading="lazy">
+                  <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80&amp;fm=webp" alt="" width="48" height="48" loading="lazy" decoding="async">
                   <div><h3 class="font-semibold text-white">Дмитро Савчук</h3><p class="text-sm text-slate-400">Ferrari 812 Superfast</p></div>
                 </div>
               </div>
             </article>
           </div>
           <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev !text-red-600" aria-label="Попередній відгук"></div>
-          <div class="swiper-button-next !text-red-600" aria-label="Наступний відгук"></div>
+          <button class="swiper-button-prev !text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2" type="button" aria-label="Попередній відгук"></button>
+          <button class="swiper-button-next !text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2" type="button" aria-label="Наступний відгук"></button>
         </div>
       </div>
     </section>
 
-    <section id="calculator" data-track-calculator class="py-16 bg-slate-900 text-white" aria-label="Ferrari Track Day Configurator">
+    <section id="calculator" data-track-calculator class="py-16 bg-slate-900 text-white" aria-labelledby="calculator-title">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="mb-10 text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-red-500">Build your track day</p>
-          <h2 class="mt-3 font-[Space_Grotesk] text-3xl font-bold sm:text-4xl">Ferrari Track Day Configurator</h2>
+          <h2 id="calculator-title" class="mt-3 font-[Space_Grotesk] text-3xl font-bold sm:text-4xl">Ferrari Track Day Configurator</h2>
           <p class="mx-auto mt-4 max-w-2xl text-slate-400">Оберіть автомобіль, кількість кіл і додаткові послуги, щоб налаштувати свій трековий день.</p>
         </header>
 
         <form class="grid gap-8 md:grid-cols-2">
           <div class="space-y-6">
             <div>
-              <label class="mb-2 block text-sm font-medium text-slate-200">Модель Ferrari
-                <select class="mt-2 min-h-12 w-full rounded-lg border border-slate-700 bg-slate-800 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600" data-car-select name="car">
+              <label class="mb-2 block text-sm font-medium text-slate-200" for="calculator-car">Модель Ferrari
+                <select id="calculator-car" class="mt-2 min-h-12 w-full rounded-lg border border-slate-700 bg-slate-800 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2" data-car-select name="car">
                   <option value="1200">Ferrari 250 Testa Rossa ($1,200 / коло)</option>
                   <option value="700">Ferrari 488 Pista ($700 / коло)</option>
                   <option value="1100">Ferrari LaFerrari ($1,100 / коло)</option>
@@ -315,16 +317,16 @@
             </div>
 
             <div>
-              <label class="mb-2 block text-sm font-medium text-slate-200">Кількість кіл
-                <input class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-600" type="number" data-laps-input name="laps" min="1" max="50" value="5">
+              <label class="mb-2 block text-sm font-medium text-slate-200" for="calculator-laps">Кількість кіл
+                <input id="calculator-laps" class="mt-2 min-h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2" type="number" data-laps-input name="laps" min="1" max="50" value="5">
               </label>
-              <div data-calc-error-container class="hidden text-xs text-red-500 font-medium mt-1" role="alert" aria-live="polite"></div>
+              <div id="calc-error-container" data-calc-error-container class="hidden text-xs text-red-500 font-medium mt-1" role="status" aria-live="polite" aria-atomic="true"></div>
               <p class="mt-2 text-sm text-slate-400" data-laps-hint>Вкажіть від 1 до 50 кіл.</p>
             </div>
 
             <div>
-              <label class="mb-2 block text-sm font-medium text-slate-200">Пакет телеметрії
-                <select class="mt-2 min-h-12 w-full rounded-lg border border-slate-700 bg-slate-800 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600" data-telemetry-select name="telemetry">
+              <label class="mb-2 block text-sm font-medium text-slate-200" for="calculator-telemetry">Пакет телеметрії
+                <select id="calculator-telemetry" class="mt-2 min-h-12 w-full rounded-lg border border-slate-700 bg-slate-800 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2" data-telemetry-select name="telemetry">
                   <option value="0">Basic Telemetry (Без доплати)</option>
                   <option value="250">Pro Telemetry + Coach (+$250)</option>
                   <option value="500">VIP Telemetry Lab (+$500)</option>
@@ -333,8 +335,8 @@
             </div>
 
             <div class="rounded-lg border border-slate-700 bg-slate-800 p-4">
-              <label class="flex items-start gap-3 text-sm leading-6 text-slate-200">
-                <input class="mt-1 h-5 w-5 shrink-0 rounded border-slate-600 bg-slate-800 text-red-600 focus:ring-2 focus:ring-red-600" type="checkbox" data-video-check name="video" value="150">
+              <label class="flex items-start gap-3 text-sm leading-6 text-slate-200" for="calculator-video">
+                <input id="calculator-video" class="mt-1 h-5 w-5 shrink-0 rounded border-slate-600 bg-slate-800 text-red-600 focus:ring-2 focus:ring-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2" type="checkbox" data-video-check name="video" value="150">
                 <span>Додати 4K Відеозапис з Overlay телеметрії (+$150)</span>
               </label>
             </div>
@@ -352,7 +354,7 @@
 
     <section id="booking" class="scroll-mt-24 px-4 py-16 sm:px-6 md:py-24 lg:px-8" aria-labelledby="booking-title">
       <article class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-        <section class="lg:pt-8" aria-labelledby="booking-title">
+        <div class="lg:pt-8">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">Reserve your track day</p>
           <h2 id="booking-title" class="mt-3 font-[Space_Grotesk] text-3xl font-bold text-white sm:text-4xl">Забронюйте свій заїзд</h2>
           <p class="mt-4 leading-7 text-slate-400">Оберіть трасу, дату та супровід. Команда підтвердить доступність і зв’яжеться з вами для узгодження деталей.</p>
@@ -405,8 +407,8 @@
                 <option class="bg-slate-900 text-slate-200" value="luca">Luca Benetti — інструктор із пілотування</option>
               </select>
             </div>
-            <label class="flex items-start gap-3 text-sm leading-6 text-slate-400">
-              <input class="mt-1 h-4 w-4 shrink-0 accent-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" type="checkbox" name="consent" required>
+            <label class="flex items-start gap-3 text-sm leading-6 text-slate-400" for="booking-consent">
+              <input id="booking-consent" class="mt-1 h-4 w-4 shrink-0 accent-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" type="checkbox" name="consent" required>
               <span>Погоджуюся на обробку персональних даних для відповіді на запит.</span>
             </label>
             <button class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-5 font-semibold text-white shadow-lg shadow-red-600/30 transition-all duration-300 ease-in-out hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/30 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="submit">Надіслати запит на бронювання <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
@@ -438,7 +440,7 @@
     <section class="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4" aria-label="Інформація про компанію">
       <article>
         <a class="inline-flex min-h-11 items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 duration-300" href="index.html" aria-label="Scuderia Telemetry Lab — головна">
-          <img class="h-10 w-auto dark:hidden" src="assets/images/logo-light.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy"><img class="hidden h-10 w-auto dark:block" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy">
+          <img class="h-10 w-auto dark:hidden" src="assets/images/logo-light.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy" decoding="async"><img class="hidden h-10 w-auto dark:block" src="assets/images/logo.svg.svg" alt="Scuderia Telemetry Lab" width="160" height="40" loading="lazy" decoding="async">
         </a>
         <p class="mt-3 max-w-xs text-sm leading-6 text-slate-400">Трековий досвід і точна телеметрія для пілотів, які прагнуть більшого.</p>
       </article>
@@ -470,46 +472,42 @@
     </section>
   </footer>
 
-  <script src="js/vendor/swiper-bundle.min.js"></script>
-  <script src="js/vendor/fancybox.umd.js"></script>
-  <script src="js/vendor/typed.min.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    const bookingForm = document.getElementById("booking-form");
-    const bookingDate = document.getElementById("booking-date");
-    const bookingCar = document.getElementById("booking-car");
-    const trackSelect = document.getElementById("booking-track");
-    const coachSelect = document.getElementById("booking-coach");
-    const requestedCar = new URLSearchParams(window.location.search).get("car");
-    const requestedTrack = new URLSearchParams(window.location.search).get("track");
-    const requestedCoach = new URLSearchParams(window.location.search).get("instructor");
-
-    bookingDate.min = new Date().toLocaleDateString("en-CA");
-    if (["testa-rossa", "488-pista", "laferrari", "499p"].includes(requestedCar)) {
-      bookingCar.value = requestedCar;
-    }
-    if (["monza", "spa", "nurburgring"].includes(requestedTrack)) {
-      trackSelect.value = requestedTrack;
-    }
-    if (["marco", "matteo", "luca"].includes(requestedCoach)) {
-      coachSelect.value = requestedCoach;
-    }
-
-    bookingForm.addEventListener("reset", () => {
-      window.setTimeout(() => {
-        if (["testa-rossa", "488-pista", "laferrari", "499p"].includes(requestedCar)) {
-          bookingCar.value = requestedCar;
-        }
-        if (["monza", "spa", "nurburgring"].includes(requestedTrack)) {
-          trackSelect.value = requestedTrack;
-        }
-        if (["marco", "matteo", "luca"].includes(requestedCoach)) {
-          coachSelect.value = requestedCoach;
-        }
-      }, 0);
-    });
+  <script defer>
+    (() => {
+      const root = document.documentElement;
+      let savedTheme = null;
+      try {
+        savedTheme = window.localStorage.getItem('theme');
+      } catch (error) {
+        console.error("Не вдалося прочитати збережену тему.", error);
+      }
+      const isDark = savedTheme === 'dark' || (savedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      root.classList.toggle('dark', isDark);
+      root.classList.toggle('light-theme', !isDark);
+      const heroImage = document.querySelector('#home > img');
+      if (heroImage) {
+        heroImage.src = isDark ? 'assets/images/hero-bg.webp' : 'assets/images/Hero_bg_white.webp';
+      }
+    })();
   </script>
-  <!-- Підключення створеного скрипта -->
-  <script src="js/validation.js" defer></script>
+  <script defer>
+    window.tailwind = {
+      config: {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: "var(--color-brand)"
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script src="js/vendor/swiper-bundle.min.js" defer></script>
+  <script src="js/vendor/fancybox.umd.js" defer></script>
+  <script src="js/vendor/typed.min.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

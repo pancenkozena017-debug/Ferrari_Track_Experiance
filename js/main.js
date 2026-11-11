@@ -152,78 +152,88 @@
 
       lapsHint.id = createUniqueId(`track-calculator-${index}-laps-hint`);
       calcErrorContainer.id = createUniqueId("calc-error-container", calcErrorContainer);
+      calcErrorContainer.setAttribute("aria-live", "polite");
+      calcErrorContainer.setAttribute("aria-atomic", "true");
       lapsInput.setAttribute("aria-describedby", `${lapsHint.id} ${calcErrorContainer.id}`);
 
-      const setError = (message, invalidInput = null) => {
-        calcErrorContainer.textContent = message;
-        calcErrorContainer.classList.remove("hidden");
-        lapsInput.classList.remove("border-red-500", "focus:ring-red-500", "text-red-900", "bg-red-50");
-        lapsInput.classList.add("border-gray-300", "focus:ring-red-600", "text-gray-900", "bg-white");
-        lapsInput.removeAttribute("aria-invalid");
+      const currencyFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0
+      });
 
-        if (invalidInput === lapsInput) {
-          lapsInput.classList.remove("border-gray-300", "focus:ring-red-600", "text-gray-900", "bg-white");
-          lapsInput.classList.add("border-red-500", "focus:ring-red-500", "text-red-900", "bg-red-50");
+      const calculateTrackCost = ({ carValue, lapsValue, telemetryValue, includeVideo }) => {
+        const normalizedLaps = lapsValue.trim();
+        if (!/^\d+$/.test(normalizedLaps)) {
+          return { total: 0, error: "Вкажіть кількість кіл від 1 до 50.", invalidLaps: true };
+        }
+
+        const lapsCount = Number(normalizedLaps);
+        if (!Number.isInteger(lapsCount) || lapsCount < 1 || lapsCount > 50) {
+          return { total: 0, error: "Вкажіть кількість кіл від 1 до 50.", invalidLaps: true };
+        }
+
+        const carRate = Number(carValue);
+        if (![700, 1100, 1200, 1500].includes(carRate)) {
+          return { total: 0, error: "Оберіть коректну модель Ferrari.", invalidLaps: false };
+        }
+
+        const telemetryRate = Number(telemetryValue);
+        if (![0, 250, 500].includes(telemetryRate)) {
+          return { total: 0, error: "Оберіть коректний пакет телеметрії.", invalidLaps: false };
+        }
+
+        const total = carRate * lapsCount + telemetryRate + (includeVideo ? 150 : 0);
+        if (!Number.isSafeInteger(total) || total < 0) {
+          return {
+            total: 0,
+            error: "Не вдалося розрахувати вартість. Перевірте вибрані параметри.",
+            invalidLaps: false
+          };
+        }
+
+        return { total, error: "", invalidLaps: false };
+      };
+
+      const renderCalculation = (result) => {
+        totalPrice.textContent = currencyFormatter.format(result.total);
+        calcErrorContainer.textContent = result.error;
+        calcErrorContainer.classList.toggle("hidden", !result.error);
+
+        lapsInput.classList.toggle("border-red-500", result.invalidLaps);
+        lapsInput.classList.toggle("focus:ring-red-500", result.invalidLaps);
+        lapsInput.classList.toggle("text-red-900", result.invalidLaps);
+        lapsInput.classList.toggle("bg-red-50", result.invalidLaps);
+        lapsInput.classList.toggle("border-gray-300", !result.invalidLaps);
+        lapsInput.classList.toggle("focus:ring-red-600", !result.invalidLaps);
+        lapsInput.classList.toggle("text-gray-900", !result.invalidLaps);
+        lapsInput.classList.toggle("bg-white", !result.invalidLaps);
+        if (result.invalidLaps) {
           lapsInput.setAttribute("aria-invalid", "true");
+        } else {
+          lapsInput.removeAttribute("aria-invalid");
         }
       };
 
-      const clearError = () => {
-        calcErrorContainer.textContent = "";
-        calcErrorContainer.classList.add("hidden");
-        lapsInput.classList.remove("border-red-500", "focus:ring-red-500", "text-red-900", "bg-red-50");
-        lapsInput.classList.add("border-gray-300", "focus:ring-red-600", "text-gray-900", "bg-white");
-        lapsInput.removeAttribute("aria-invalid");
-      };
-
       let previousInputs;
-      const calculateTrackCost = () => {
+      const updateTrackCost = () => {
         const inputs = [carSelect.value, lapsInput.value, telemetrySelect.value, videoCheck.checked];
         if (previousInputs && inputs.every((value, inputIndex) => value === previousInputs[inputIndex])) {
           return;
         }
         previousInputs = inputs;
 
-        const carRate = Number(carSelect.value);
-        if (![700, 1100, 1200, 1500].includes(carRate)) {
-          totalPrice.textContent = "$0";
-          setError("Оберіть коректну модель Ferrari.");
-          return;
-        }
-
-        const lapsCount = Number(lapsInput.value);
-        if (!Number.isInteger(lapsCount) || lapsCount < 1 || lapsCount > 50) {
-          totalPrice.textContent = "$0";
-          setError(
-            lapsCount < 1
-              ? "Мінімальна кількість кіл для заїзду — 1."
-              : "Кількість кіл має бути цілим числом від 1 до 50.",
-            lapsInput
-          );
-          return;
-        }
-
-        const telemetryRate = Number(telemetrySelect.value);
-        if (![0, 250, 500].includes(telemetryRate)) {
-          totalPrice.textContent = "$0";
-          setError("Оберіть коректний пакет телеметрії.");
-          return;
-        }
-
-        const videoRate = videoCheck.checked ? 150 : 0;
-        const total = (carRate * lapsCount) + telemetryRate + videoRate;
-        if (!Number.isFinite(total) || total < 0) {
-          totalPrice.textContent = "$0";
-          setError("Не вдалося розрахувати вартість. Перевірте вибрані параметри.");
-          return;
-        }
-
-        clearError();
-        totalPrice.textContent = `$${total.toLocaleString("en-US")}`;
+        const result = calculateTrackCost({
+          carValue: carSelect.value,
+          lapsValue: lapsInput.value,
+          telemetryValue: telemetrySelect.value,
+          includeVideo: videoCheck.checked
+        });
+        renderCalculation(result);
       };
 
       const safelyCalculateTrackCost = () => {
-        runOptionalFeature("розрахунок калькулятора", calculateTrackCost);
+        runOptionalFeature("розрахунок калькулятора", updateTrackCost);
       };
 
       lapsInput.addEventListener("input", safelyCalculateTrackCost, { passive: true });

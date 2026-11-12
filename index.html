@@ -365,10 +365,10 @@
           </ul>
         </section>
         <section class="rounded-2xl border border-white/10 bg-slate-900/80 p-5 shadow-2xl sm:p-8" aria-label="Форма бронювання трек-заїзду">
-          <form id="booking-form" class="space-y-5" aria-describedby="booking-note">
+          <form id="booking-form" class="space-y-5" aria-describedby="booking-note booking-feedback" data-email-form data-email-subject="Нова заявка на бронювання Ferrari Track Experience">
             <div>
               <label class="mb-2 block text-sm font-medium text-slate-200" for="booking-name">Ім’я</label>
-              <input class="min-h-12 w-full rounded-lg border border-white/15 bg-slate-950 px-4 text-white placeholder:text-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" id="booking-name" name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" required>
+              <input class="min-h-12 w-full rounded-lg border border-white/15 bg-slate-950 px-4 text-white placeholder:text-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" id="booking-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="50" placeholder="Ваше ім’я" required>
             </div>
             <div>
               <label class="mb-2 block text-sm font-medium text-slate-200" for="booking-email">Електронна пошта</label>
@@ -412,29 +412,13 @@
               <span>Погоджуюся на обробку персональних даних для відповіді на запит.</span>
             </label>
             <button class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-5 font-semibold text-white shadow-lg shadow-red-600/30 transition-all duration-300 ease-in-out hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/30 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="submit">Надіслати запит на бронювання <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-            <p id="booking-note" class="text-xs leading-5 text-slate-400">Демонстраційна форма: серверне бронювання ще не підключене. Після надсилання з’явиться підтвердження тестового запиту.</p>
-            <p id="booking-feedback" class="text-sm text-amber-500" role="status" aria-live="polite"></p>
+            <p id="booking-note" class="text-xs leading-5 text-slate-400">Дані заявки будуть надіслані команді для підтвердження доступності та узгодження деталей.</p>
+            <p id="booking-feedback" class="text-sm" data-form-feedback role="status" aria-live="polite"></p>
           </form>
         </section>
       </article>
     </section>
   </main>
-
-  <!-- Модальне вікно успішної валідації (Етап 19) -->
-  <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4" role="dialog" aria-modal="true" aria-labelledby="successModalTitle" aria-describedby="successModalMessage" tabindex="-1">
-    <div class="w-full max-w-md rounded-xl border border-gray-200 bg-white p-6 text-center shadow-2xl dark:border-gray-700 dark:bg-gray-800">
-      <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400" aria-hidden="true">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-      </div>
-      <h2 id="successModalTitle" class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Статус валідації</h2>
-      <p id="successModalMessage" class="mb-6 text-sm text-gray-600 dark:text-gray-300">Форма успішно пройшла клієнтську валідацію. Демонстрація успішного надсилання</p>
-      <button id="closeModalBtn" type="button" class="w-full rounded-lg bg-red-600 px-6 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500">
-        Закрити
-      </button>
-    </div>
-  </div>
 
   <footer class="border-t border-white/10 bg-white px-4 py-10 dark:bg-slate-950 sm:px-6 lg:px-8">
     <section class="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4" aria-label="Інформація про компанію">
@@ -508,6 +492,7 @@
   <script src="js/vendor/swiper-bundle.min.js" defer></script>
   <script src="js/vendor/fancybox.umd.js" defer></script>
   <script src="js/vendor/typed.min.js" defer></script>
+  <script src="js/form-submit.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

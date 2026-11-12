@@ -210,7 +210,7 @@
         <button id="close-telemetry-modal" class="absolute right-4 top-4 rounded-md p-2 text-slate-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500" type="button" aria-label="Закрити вікно">✕</button>
         <h3 id="telemetry-modal-title" class="pr-8 text-xl font-bold text-white">Отримати повний аналіз телеметрії</h3>
         <p id="telemetry-modal-description" class="mt-3 text-sm leading-6 text-slate-300">Введіть свій Email, щоб ми надіслали розгорнутий PDF-звіт з 48 каналами даних (MoTeC / WinTAX) або зв'язалися для налаштування сесії.</p>
-        <form id="telemetry-form" class="mt-4">
+        <form id="telemetry-form" class="mt-4" data-email-form data-email-subject="Запит на звіт з телеметрії">
           <label class="block text-sm font-medium text-slate-200" for="telemetry-email">Email</label>
           <input id="telemetry-email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" class="mt-2 min-h-12 w-full rounded-xl border border-white/10 bg-slate-950 px-4 text-sm text-white placeholder-slate-500 transition focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300">
           <label class="mt-4 block text-sm font-medium text-slate-200" for="telemetry-track">Автодром <span class="text-slate-400">(необов'язково)</span></label>
@@ -220,9 +220,9 @@
             <option class="bg-slate-900 text-slate-200" value="spa">Spa</option>
             <option class="bg-slate-900 text-slate-200" value="nurburgring">Nürburgring</option>
           </select>
-          <p class="mt-3 text-xs leading-5 text-slate-400">Демонстраційна форма: надсилання звіту стане доступним після підключення серверної обробки.</p>
+          <p class="mt-3 text-xs leading-5 text-slate-400">Ми отримаємо ваш запит і зв’яжемося щодо звіту з телеметрії.</p>
           <button type="submit" class="mt-4 min-h-12 w-full rounded-xl bg-red-600 font-semibold text-white shadow-lg shadow-red-600/30 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600 transition duration-300">Надіслати звіт на пошту</button>
-          <p id="telemetry-feedback" class="mt-3 text-sm text-amber-500" role="status" aria-live="polite"></p>
+          <p id="telemetry-feedback" class="mt-3 text-sm" data-form-feedback role="status" aria-live="polite"></p>
         </form>
       </section>
     </div>
@@ -245,10 +245,8 @@
     const openTelemetryModalButton = document.getElementById("open-telemetry-modal");
     const closeTelemetryModalButton = document.getElementById("close-telemetry-modal");
     const telemetryModal = document.getElementById("telemetry-modal");
-    const telemetryForm = document.getElementById("telemetry-form");
     const telemetryEmail = document.getElementById("telemetry-email");
     const telemetryFeedback = document.getElementById("telemetry-feedback");
-    let telemetryCloseTimer;
 
     const closeTelemetryModal = () => {
       telemetryModal.classList.add("hidden");
@@ -256,7 +254,6 @@
       telemetryModal.hidden = true;
       document.body.classList.remove("overflow-hidden");
       openTelemetryModalButton.focus();
-      window.clearTimeout(telemetryCloseTimer);
     };
 
     openTelemetryModalButton.addEventListener("click", () => {
@@ -295,13 +292,6 @@
       }
     });
 
-    telemetryForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      telemetryFeedback.textContent = "Форму перевірено. Надсилання звіту на email стане можливим після підключення серверної обробки.";
-      window.clearTimeout(telemetryCloseTimer);
-      telemetryCloseTimer = window.setTimeout(closeTelemetryModal, 2000);
-    });
-
     lapProgress.addEventListener("input", () => {
       const progress = Number(lapProgress.value);
       const markerPosition = 20 + (progress / 100) * 960;
@@ -310,5 +300,6 @@
       lapProgressLabel.textContent = `Дистанція: ${progress}%`;
     });
   </script>
+  <script src="js/form-submit.js" defer></script>
 </body>
 </html>

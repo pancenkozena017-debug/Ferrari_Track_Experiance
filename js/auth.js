@@ -5,7 +5,7 @@
   const DRAFT_KEY = "ferrariTrackBookingDraft";
   const OWNER_EMAIL = "pancenkozena017@gmail.com";
   const ENDPOINT_URL = "https://api.web3forms.com/submit";
-  const ACCESS_KEY = "PASTE_WEB3FORMS_ACCESS_KEY_HERE";
+  const ACCESS_KEY = "b2cfbab0-59c6-4591-9023-7617eccff55a";
   const SUCCESS_MESSAGE = "Заявку успішно надіслано менеджеру! Деталі збережено у вашому кабінеті.";
   const bookingRates = {
     "testa-rossa": 1200,

@@ -46,6 +46,8 @@
       feedback.textContent = "";
       delete feedback.dataset.state;
 
+      let responseStatus = null;
+      let responseBody = "";
       try {
         const response = await fetch(endpoint, {
           method: "POST",
@@ -55,17 +57,31 @@
           },
           body: JSON.stringify(payload)
         });
-        const result = await response.json();
+        responseStatus = response.status;
+        responseBody = await response.text();
 
-        if (!response.ok || String(result.success).toLowerCase() !== "true") {
-          throw new Error(result.message || "Сервіс не прийняв заявку.");
+        let result;
+        try {
+          result = JSON.parse(responseBody);
+        } catch {
+          throw new Error(`FormSubmit повернув некоректну JSON-відповідь (HTTP ${response.status}).`);
+        }
+
+        if (!response.ok || String(result?.success).toLowerCase() !== "true") {
+          throw new Error(result?.message || `FormSubmit відхилив заявку (HTTP ${response.status}).`);
         }
 
         form.reset();
         feedback.textContent = "Дякуємо! Ваш запит надіслано. Ми зв’яжемося з вами найближчим часом.";
         feedback.dataset.state = "success";
       } catch (error) {
-        console.error("Не вдалося надіслати заявку.", error);
+        console.error("Не вдалося надіслати заявку через FormSubmit.", {
+          endpoint,
+          method: "POST",
+          status: responseStatus,
+          response: responseBody || "(порожня відповідь)",
+          error
+        });
         feedback.textContent = "Не вдалося надіслати заявку. Перевірте з’єднання та спробуйте ще раз.";
         feedback.dataset.state = "error";
       } finally {

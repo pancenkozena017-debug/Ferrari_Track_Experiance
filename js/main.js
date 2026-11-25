@@ -267,6 +267,8 @@
         };
 
         bookingDate.min = new Date().toLocaleDateString("en-CA");
+        const calculatorDate = document.querySelector("#calculator-date");
+        if (calculatorDate) calculatorDate.min = bookingDate.min;
         applyRequestedOptions();
         bookingForm.addEventListener("reset", () => {
           window.setTimeout(applyRequestedOptions, 0);

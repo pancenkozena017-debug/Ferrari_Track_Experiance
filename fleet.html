@@ -56,6 +56,14 @@
         <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
         <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"></path></svg>
       </button>
+      <div id="auth-controls" class="auth-controls">
+        <button id="auth-open-button" class="auth-button" type="button">Увійти</button>
+        <div id="auth-user-controls" class="auth-user-controls" hidden>
+          <span class="auth-user-greeting"><i class="fa-solid fa-user-astronaut" aria-hidden="true"></i><span id="auth-user-name"></span></span>
+          <button class="auth-button auth-button-secondary" type="button" data-open-dashboard>Кабінет</button>
+          <button class="auth-button auth-button-quiet" type="button" data-sign-out>Вийти</button>
+        </div>
+      </div>
       <a class="hidden min-h-11 items-center justify-center rounded-xl bg-red-600 px-5 text-sm font-semibold text-white shadow-lg shadow-red-600/30 transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 sm:inline-flex duration-300" href="index.html#booking">Забронювати трек-день</a>
       <details class="group relative xl:hidden">
         <summary class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/15 text-white hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" aria-label="Меню навігації">
@@ -128,8 +136,54 @@
 
   <footer class="border-t border-white/10 bg-slate-950 px-4 py-6 text-center text-sm text-slate-500">
     <p>© 2026 Ferrari Track Experience &amp; Telemetry Lab. Незалежна демонстраційна концепція, не пов’язана з Ferrari S.p.A.</p>
+    <nav class="mt-4 flex justify-center gap-3" aria-label="Соціальні мережі">
+      <a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="https://www.instagram.com/panchenko.eugene" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+      <a class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 hover:border-red-600 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 duration-300" href="https://www.youtube.com/channel/UCzYp2cE7MeKYmj7dxAZ3E8w" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+    </nav>
   </footer>
 
+  <dialog class="auth-dialog" id="auth-dialog" aria-labelledby="auth-title">
+    <div class="auth-dialog-header">
+      <div><p class="auth-eyebrow">Scuderia Ferrari</p><h2 id="auth-title">Особистий акаунт</h2></div>
+      <button class="auth-close" type="button" data-close-dialog aria-label="Закрити вікно">×</button>
+    </div>
+    <p class="auth-notice" id="auth-notice" aria-live="polite"></p>
+    <div class="auth-tabs" role="tablist" aria-label="Вхід або реєстрація">
+      <button class="auth-tab" type="button" role="tab" id="auth-login-tab" aria-controls="auth-login-panel" aria-selected="true" data-auth-tab="login">Вхід</button>
+      <button class="auth-tab" type="button" role="tab" id="auth-register-tab" aria-controls="auth-register-panel" aria-selected="false" data-auth-tab="register">Реєстрація</button>
+    </div>
+    <form class="auth-form" id="auth-login-panel" role="tabpanel" aria-labelledby="auth-login-tab" data-auth-form="login" novalidate>
+      <label for="login-email">Email</label><input id="login-email" name="email" type="email" autocomplete="email" required autofocus>
+      <label for="login-password">Пароль</label><input id="login-password" name="password" type="password" autocomplete="current-password" minlength="6" required>
+      <button class="auth-submit" type="submit">Увійти</button>
+    </form>
+    <form class="auth-form" id="auth-register-panel" role="tabpanel" aria-labelledby="auth-register-tab" data-auth-form="register" hidden novalidate>
+      <label for="register-name">Ім’я та прізвище</label><input id="register-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" required>
+      <label for="register-email">Email</label><input id="register-email" name="email" type="email" autocomplete="email" required>
+      <label for="register-phone">Номер телефону <span>(опціонально)</span></label><input id="register-phone" name="phone" type="tel" autocomplete="tel">
+      <label for="register-password">Пароль <span>(мінімум 6 символів)</span></label><input id="register-password" name="password" type="password" autocomplete="new-password" minlength="6" required>
+      <button class="auth-submit" type="submit">Створити акаунт</button>
+    </form>
+    <p class="auth-feedback" id="auth-feedback" role="status" aria-live="polite"></p>
+    <p class="auth-local-note">Дані цього демонстраційного акаунта зберігаються лише у браузері на цьому пристрої.</p>
+  </dialog>
+  <dialog class="auth-dialog auth-dashboard" id="dashboard-dialog" aria-labelledby="dashboard-title">
+    <div class="auth-dialog-header">
+      <div><p class="auth-eyebrow">Ваш персональний профіль</p><h2 id="dashboard-title">Кабінет пілота</h2></div>
+      <button class="auth-close" type="button" data-close-dialog aria-label="Закрити кабінет">×</button>
+    </div>
+    <section class="dashboard-profile" aria-label="Особисті дані">
+      <h3>Особисті дані</h3>
+      <dl><div><dt>Ім’я</dt><dd data-profile-name></dd></div><div><dt>Email</dt><dd data-profile-email></dd></div><div><dt>Статус пілота</dt><dd data-profile-status>Зареєстрований пілот</dd></div></dl>
+    </section>
+    <section class="dashboard-orders" aria-labelledby="orders-title">
+      <h3 id="orders-title">Історія бронювань</h3><ol data-order-list></ol><p class="auth-empty-orders" data-empty-orders>Бронювань ще немає.</p>
+    </section>
+    <button class="auth-submit auth-signout" type="button" data-sign-out>Вийти з акаунта</button>
+  </dialog>
+  <p class="auth-toast" id="auth-toast" role="status" aria-live="polite" hidden></p>
+
   <script src="js/main.js" defer></script>
+  <script src="js/auth.js" defer></script>
 </body>
 </html>
